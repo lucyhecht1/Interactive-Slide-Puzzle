@@ -4,6 +4,12 @@ from flask import render_template
 from flask import Response, request, jsonify
 app = Flask(__name__)
 
+# list of descriptions for each step
+description = [1, 2, 3, 4, 5, 6]
+
+# stores the layout of the puzzle at all times
+layout = [[6, 4, 7], [8, 5, None], [3, 2, 1]]
+
 
 @app.route('/')
 def hello_world():
@@ -26,13 +32,10 @@ def results():
     return render_template('search_results.html', results=results, search_query=search_query, num_matches=num_matches)
 
 
-@app.route('/view/<int:entry_id>')
-def details(entry_id):
-    global games
-    game = games[entry_id]
-    other_games = [games[i] for i in game["same_maker_games"]]
+@app.route('/learn/<int:id>')
+def learn(id):
 
-    return render_template('view.html', game=game, other_games=other_games)
+    return render_template('learn.html', id=id, description=description[id-1], layout=layout)
 
 
 @app.route('/edit/<int:entry_id>')

@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h2>
+    Step {{id}}
+</h2>
+
+<h3>{{description}}</h3>
+<div id="source">
+
+
+</div>
+<script>
+
+const lay = '{{ layout | tojson | safe }}';
+const grid_use = JSON.parse(lay);
+const sourceDiv = document.getElementById('source');
+sourceDiv.appendChild(buildPuzzle(grid_use));
+</script>
+{% endblock %}
