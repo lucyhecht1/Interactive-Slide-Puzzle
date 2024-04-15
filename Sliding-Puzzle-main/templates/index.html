@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-		<link rel="stylesheet" href="style.css" media="screen">
+{% extends "layout.html" %}
 
-		<title>Sliding Tile Puzzle</title>
-	</head>
-
-	<body>
+{% block content %}
 		<h1>A Sliding Puzzle Solver</h1>
 		<div class="container">
 			<canvas id="confetti"></canvas>
@@ -81,10 +73,9 @@
 		<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 		<!-- <script type="text/javascript" src="js/jquery.js"></script> -->
 		<script src="https://cdn.jsdelivr.net/npm/js-priority-queue@0.1.5/priority-queue.min.js"></script>
-		<script type="text/javascript" src="js/hashset.js"></script>
-		<script type="text/javascript" src="js/hashtable.js"></script>
+		<script type="text/javascript" src="static/hashset.js"></script>
+		<script type="text/javascript" src="static/hashtable.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 	
-		<script type="text/javascript" src="index.js"></script>
-	</body>
-</html>
+		<script type="text/javascript" src="static/index.js"></script>
+	{% endblock %}
