@@ -13,7 +13,16 @@ layout = [[6, 4, 7], [8, 5, None], [3, 2, 1]]
 
 @app.route('/')
 def hello_world():
-    return render_template('index.html')
+    return render_template('home.html')
+
+@app.route('/row')
+def row():
+    return render_template('learnRow.html')
+
+@app.route('/col')
+def col():
+    return render_template('learnCol.html')
+
 
 
 @app.route('/result', methods=["GET"])
