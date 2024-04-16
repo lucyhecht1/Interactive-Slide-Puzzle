@@ -1,6 +1,6 @@
-var emptyTileRow = 1;
-var emptyTileCol = 2;
-var cellDisplacement = "69px";
+let emptyTileRow = 0;
+let emptyTileCol = 0;
+var cellDisplacement = "66.5px";
 var goal_arr = [
   [1, 2, 3],
   [4, 5, 6],
@@ -14,7 +14,6 @@ var grid = document.getElementById("confetti");
 isWin = false;
 isShuffle = false;
 isDebug = false;
-
 function buildPuzzle(gridArray) {
   // Create the main grid container div
   const gridContainer = document.createElement("div");
@@ -35,11 +34,10 @@ function buildPuzzle(gridArray) {
       // Create a div for the cell
       const cellDiv = document.createElement("div");
       cellDiv.classList.add("cell");
-      cellDiv.setAttribute("data-pos", `${i},${j}`);
+      cellDiv.setAttribute("data-row", `${i}`);
+      cellDiv.setAttribute("data-col", `${j}`);
 
-      // Create a span element for the cell content
-      const spanElement = document.createElement("span");
-      if (cellData == null) {
+      if (cellData == 0) {
         cellDiv.id = "empty";
       } else {
         const spanElement = document.createElement("span");
@@ -60,10 +58,11 @@ function buildPuzzle(gridArray) {
 }
 
 function moveTile() {
-  var pos = $(this).attr("data-pos");
+  emptyTileRow = parseInt($("#empty").attr("data-row"));
+  emptyTileCol = parseInt($("#empty").attr("data-col"));
   if (isDebug) console.log(pos);
-  var posRow = parseInt(pos.split(",")[0]);
-  var posCol = parseInt(pos.split(",")[1]);
+  var posRow = parseInt($(this).attr("data-row"));
+  var posCol = parseInt($(this).attr("data-col"));
 
   // Move tile down
   if (posRow + 1 == emptyTileRow && posCol == emptyTileCol) {
@@ -76,7 +75,7 @@ function moveTile() {
     });
 
     emptyTileRow -= 1;
-    $(this).attr("data-pos", posRow + 1 + "," + posCol);
+    $(this).attr("data-row", posRow + 1);
   }
 
   // Move tile up
@@ -90,7 +89,7 @@ function moveTile() {
     });
 
     emptyTileRow += 1;
-    $(this).attr("data-pos", posRow - 1 + "," + posCol);
+    $(this).attr("data-row", posRow - 1);
   }
 
   // Move tile right
@@ -104,7 +103,7 @@ function moveTile() {
     });
 
     emptyTileCol -= 1;
-    $(this).attr("data-pos", posRow + "," + (posCol + 1));
+    $(this).attr("data-col", posCol + 1);
   }
 
   // Move tile left
@@ -118,19 +117,51 @@ function moveTile() {
     });
 
     emptyTileCol += 1;
-    $(this).attr("data-pos", posRow + "," + (posCol - 1));
+    $(this).attr("data-col", posCol - 1);
   }
 
-  $("#empty").attr("data-pos", emptyTileRow + "," + emptyTileCol);
+  $("#empty").attr("data-row", emptyTileRow);
+  $("#empty").attr("data-col", emptyTileCol);
+  sendLayout(getCurrentTileState());
+
+  checkStepComplete();
 
   // party.confetti(grid)
   if (!isShuffle) checkWinState();
 }
 
-// $('.cell').click(function() {
-// 	alert($(this).attr('data-pos'))
-// })
-$(".start .cell").click(moveTile);
+function sendLayout(layout) {
+  // Send the layout data to Flask using AJAX
+  $.ajax({
+    type: "POST",
+    url: "/send_layout", // Change the URL to your Flask endpoint
+    contentType: "application/json",
+    data: JSON.stringify({ layout: layout }),
+    success: function (response) {},
+    error: function (err) {
+      console.error("Error sending layout:", err);
+    },
+  });
+}
+function checkStepComplete() {
+  $("#success").text("");
+  let step = $("#success").attr("data-step");
+  let layout = getCurrentTileState();
+  switch (parseInt(step)) {
+    case 1:
+      if (layout[0][0] == 1) {
+        console.log("step 1 complete");
+        $("#success").text("Success");
+      }
+      break;
+    case 2:
+      if (layout[0][0] == 1 && layout[0][1] == 3) {
+        console.log("step 2 complete");
+        $("#success").text("Success");
+      }
+      break;
+  }
+}
 
 /**
  * Constructor of class Node
@@ -291,9 +322,8 @@ function getCurrentTileState() {
 
   $(".start .cell").each(function (i, obj) {
     // console.log(i,$(this).find("span").text())
-    temp_pos = $(this).attr("data-pos");
-    i = parseInt(temp_pos.split(",")[0]);
-    j = parseInt(temp_pos.split(",")[1]);
+    i = parseInt($(this).attr("data-row"));
+    j = parseInt($(this).attr("data-col"));
     val_str =
       $(this).find("span").text() != ""
         ? parseInt($(this).find("span").text())
@@ -570,3 +600,6 @@ function checkWinState() {
     }, 2000);
   }
 }
+$(document).ready(function () {
+  $(".start .cell").click(moveTile);
+});

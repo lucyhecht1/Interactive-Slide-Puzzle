@@ -7,15 +7,16 @@
 </h2>
 
 <h3>{{description}}</h3>
+<div id="success" data-step = '{{id}}'></div>
 <div id="source">
-
-
 </div>
 <script>
 
-const lay = '{{ layout | tojson | safe }}';
-const grid_use = JSON.parse(lay);
-const sourceDiv = document.getElementById('source');
+let lay = '{{ layout | tojson | safe }}';
+let grid_use = JSON.parse(lay);
+let sourceDiv = document.getElementById('source');
 sourceDiv.appendChild(buildPuzzle(grid_use));
+//$(".start .cell").click(moveTile('{{id}}'));
+
 </script>
 {% endblock %}

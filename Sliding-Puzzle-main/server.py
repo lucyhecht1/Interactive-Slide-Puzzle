@@ -5,24 +5,26 @@ from flask import Response, request, jsonify
 app = Flask(__name__)
 
 # list of descriptions for each step
-description = [1, 2, 3, 4, 5, 6]
+description = ["Move the '1' to the top left corner",
+               "Move the '3' to the top center position", 3, 4, 5, 6]
 
 # stores the layout of the puzzle at all times
-layout = [[6, 4, 7], [8, 5, None], [3, 2, 1]]
+layout = [[6, 4, 7], [8, 5, 0], [3, 2, 1]]
 
 
 @app.route('/')
 def hello_world():
     return render_template('home.html')
 
+
 @app.route('/row')
 def row():
     return render_template('learnRow.html')
 
+
 @app.route('/col')
 def col():
     return render_template('learnCol.html')
-
 
 
 @app.route('/result', methods=["GET"])
@@ -69,11 +71,14 @@ def autocomplete_data():
     return jsonify(data)
 
 
-@app.route('/send_game', methods=['GET'])
-def send_game():
-    global games
-    id = int(request.args.get("id"))
-    return jsonify(games[id])
+@app.route('/send_layout', methods=['POST'])
+def send_layout():
+    global layout
+    data_received = request.get_json()
+    data = data_received.get('layout')
+    layout = data
+# Example usage:
+    return jsonify({'message': 'Layout data stored successfully'})
 
 
 @app.route('/add_game', methods=['POST'])
