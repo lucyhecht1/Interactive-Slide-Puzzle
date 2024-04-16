@@ -1,6 +1,10 @@
 {% extends "layout.html" %}
 
 {% block content %}
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='learn.js') }}"></script>
+</head>
 
 <h2>
     Step {{id}}
@@ -9,6 +13,9 @@
 <h3>{{description}}</h3>
 <div id="success" data-step = '{{id}}'></div>
 <div id="source">
+<button id="backButton" >Back</button>
+<button id="nextButton" >Next</button>
+
 </div>
 <script>
 
@@ -17,6 +24,10 @@ let grid_use = JSON.parse(lay);
 let sourceDiv = document.getElementById('source');
 sourceDiv.appendChild(buildPuzzle(grid_use));
 //$(".start .cell").click(moveTile('{{id}}'));
+
+
+
+// Handler for view item button
 
 </script>
 {% endblock %}

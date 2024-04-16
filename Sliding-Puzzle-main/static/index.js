@@ -147,7 +147,9 @@ function checkStepComplete() {
   $("#success").text("");
   let step = $("#success").attr("data-step");
   let layout = getCurrentTileState();
+
   switch (parseInt(step)) {
+    //steps to solve first row
     case 1:
       if (layout[0][0] == 1) {
         console.log("step 1 complete");
@@ -160,7 +162,59 @@ function checkStepComplete() {
         $("#success").text("Success");
       }
       break;
-  }
+      case 3:
+        if (layout[0][0] == 1 && layout[0][1] == 3
+            && layout[1][1] == 2) {
+          console.log("step 3 complete");
+          $("#success").text("Success");
+        }
+        break;
+      
+      case 4:
+        if (layout[0][0] == 1 && layout[0][1] == 2
+            && layout[0][2] == 3 ) {
+          console.log("step 4 complete");
+          $("#success").text("Success");
+        }
+        break;
+
+    // steps to solve forst column
+      case 5:
+        if (layout[0][0] == 1 && layout[0][1] == 2
+            && layout[0][2] == 3 && layout[1][1] == 7 ) {
+          console.log("step 5 complete");
+          $("#success").text("Success");
+        }
+        break;
+
+      case 6:
+        if (layout[0][0] == 1 && layout[0][1] == 2
+            && layout[0][2] == 3 && layout[1][0] == 7 
+            && layout[1][1] == 4) {
+          console.log("step 6 complete");
+          $("#success").text("Success");
+        }
+        break;
+
+      case 7:
+        if (layout[0][0] == 1 && layout[0][1] == 2
+            && layout[0][2] == 3 && layout[1][0] == 4 
+            && layout[2][0] == 7) {
+          console.log("step 7 complete");
+          $("#success").text("Success");
+        }
+        break;
+      //last step that finishes puzzle
+      
+      case 8:
+        if (layout[0][0] == 1 && layout[0][1] == 2 && layout[0][2] == 3 
+            && layout[1][0] == 4  && layout[1][1] == 5  && layout[1][2] == 6 
+            && layout[2][0] == 7 && layout[2][1] == 8) {
+          console.log("step 8 complete");
+          $("#success").text("Success");
+        }
+        break;
+}
 }
 
 /**

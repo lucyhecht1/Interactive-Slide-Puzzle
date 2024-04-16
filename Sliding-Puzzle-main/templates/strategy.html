@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div id="popupContainer" class="popup">
+    <div class="popup-content">
+        <div class="row">
+            This popup page will explain the stack and slide strategy 
+            and will be accessible by button on relevant pages.
+        </div>
+        <div class="row">
+            <button id="exitButton">Back to learning > </button>
+        </div>
+    </div>
+</div>
+
+<script>
+  
+        function exit_strategy_page(){
+            console.log("made it here");
+            let originPage = window.location.pathname.split('/').pop();
+        // Click event handler for the exit button
+            $('#exitButton').click(function() {
+                // if came to strategy page from 1, then go to 2 now
+                if (originPage == 1 ){
+                    window.location.href = '/learn/2'; // Redirect to learn/2 for next steps
+                } else if (originPage == 4) {
+                    window.location.href = '/learn/4'; // Redirect back to learn/4 if came from 4
+                } 
+            });
+    }
+    exit_strategy_page();
+    
+</script>
+{% endblock %}

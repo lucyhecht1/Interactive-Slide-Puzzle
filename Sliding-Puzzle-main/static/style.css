@@ -1,9 +1,5 @@
 html {
-<<<<<<< Updated upstream
 	/*background-color: rgb(77, 119, 174);*/
-=======
-	/* background-color: rgb(77, 119, 174); */
->>>>>>> Stashed changes
 	color: azure;
 }
 h1 {
@@ -159,4 +155,38 @@ h1 {
 	#goal {
 			display: none;
 	}
+}
+
+.popup {
+    
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    z-index: 9999; /* Ensure it's above other content */
+    overflow: auto; /* Enable scrolling if content overflows */
+}
+
+.popup-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* Center the popup vertically and horizontally */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+/* Close button style */
+#exitButton {
+    background-color: #ff7d74;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
 }

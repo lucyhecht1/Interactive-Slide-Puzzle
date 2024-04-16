@@ -12,8 +12,19 @@
         <div class="row">
            Step #1: Solve the first Row
         </div>
+        <div class="row">
+        <button id="startButton" >Start</button>
+        </div>
+       
     </div>
     
 </body>
 
+<script>
+   
+    $('#startButton').click(function() {
+        window.location.href = '/learn/' + 1;
+    });
+
+</script>
 {% endblock %}
