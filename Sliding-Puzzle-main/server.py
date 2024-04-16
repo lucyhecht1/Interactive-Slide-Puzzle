@@ -33,6 +33,7 @@ def strategy(origin_page):
 
 
 
+
 @app.route('/result', methods=["GET"])
 def results():
     global games

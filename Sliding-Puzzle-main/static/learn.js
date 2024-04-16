@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    
+
     $('#strategyButton').hide()
     show_strategy_Button();
     clickStrategy()
@@ -56,6 +56,10 @@ function clickNext(){
     $('#nextButton').click(function() {
         if(currentId == 1){
             window.location.href = '/strategy/' + 1;
+        }
+
+        else if(currentId == 4){
+            window.location.href = '/col';
         }
         
         else {

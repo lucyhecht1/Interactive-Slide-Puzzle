@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<head>
+    <!-- <script type="text/javascript" src="{{ url_for('static', filename = 'welcome.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'> -->
+</head>
+<body>
+    <div>
+        <div class="row">
+           Phase #2: Solving the first Column
+        </div>
+        <div class="row">
+        <button id="startButton" >Start</button>
+        </div>
+       
+    </div>
+    
+</body>
+
+<script>
+   
+    $('#startButton').click(function() {
+        window.location.href = '/learn/' + 5;
+    });
+
+</script>
+{% endblock %}
