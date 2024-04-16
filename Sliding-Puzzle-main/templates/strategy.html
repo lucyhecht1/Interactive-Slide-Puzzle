@@ -22,10 +22,10 @@
             $('#exitButton').click(function() {
                 // if came to strategy page from 1, then go to 2 now
                 if (originPage == 1 ){
-                    window.location.href = '/learn/2'; // Redirect to learn/2 for next steps
-                } else if (originPage == 4) {
-                    window.location.href = '/learn/4'; // Redirect back to learn/4 if came from 4
-                } 
+                    window.location.href = '/learn/2';  // go to next step ( this is first time they learn it)
+                } else {
+                    window.location.href = '/learn/' + originPage; // Redirect back to the page they were on
+                }
             });
     }
     exit_strategy_page();

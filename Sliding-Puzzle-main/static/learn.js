@@ -1,9 +1,15 @@
 $(document).ready(function() {
+    
+    $('#strategyButton').hide()
+    show_strategy_Button();
+    clickStrategy()
+
     $('#backButton').hide()
     showBackButton();
+    clickBack();
+
     $('#nextButton').hide()
     showNextButton();
-    clickBack();
     clickNext();
 });
 // Hide the view item button initially
@@ -26,6 +32,12 @@ function showNextButton(){
     }
 }
 
+function show_strategy_Button(){
+    var currentId = window.location.pathname.split('/').pop();
+    if (currentId == 5 || currentId == 6 ||currentId == 7 ||currentId == 2){
+        $('#strategyButton').show()
+    }
+}
 
 function clickBack(){
     // Click event handler for the next button
@@ -55,4 +67,14 @@ function clickNext(){
       
     });
 }
+
+function clickStrategy(){
+    // Click event handler for the next button
+    let origin_page = window.location.pathname.split('/').pop();
+    $('#strategyButton').click(function() {
+        window.location.href = '/strategy/' + origin_page;
+        // passing in the origin_page
+        })
+}
+
 
