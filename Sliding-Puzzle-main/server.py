@@ -1,4 +1,6 @@
 import json
+import math
+import random
 from flask import Flask, url_for
 from flask import render_template
 from flask import Response, request, jsonify
@@ -15,7 +17,50 @@ description = ["Move the '1' to the top left corner",
                 "Shuffle around the last 4 boxes and you are done!"]
 
 # stores the layout of the puzzle at all times
-layout = [[6, 4, 7], [8, 5, 0], [3, 2, 1]]
+layout = [6, 4, 7, 8, 5, 0, 3, 2, 1]
+
+
+def to2D():
+    return [layout[:3], layout[3:6], layout[6:]]
+
+
+# function which returns a list of the index's surrounding the empty tile
+def surroundingPieces(index):
+    DIMENSION = 3
+    x = index % DIMENSION
+    y = math.floor(index / DIMENSION)
+
+    left = None if x == 0 else index - 1
+    up = None if y == 0 else index - DIMENSION
+    right = None if x == (DIMENSION-1) else index + 1
+    down = None if y == (DIMENSION-1) else index + DIMENSION
+
+    return list(filter(None, [left, up, right, down]))
+
+
+def shuffle():
+    global layout
+    MOVES = 25
+    empty = layout.index(0)  # find initial empty index
+    lastPiece = empty  # init lastPiece
+
+    for _ in range(MOVES):
+        # get surrounding pieces
+        pieces = surroundingPieces(empty)
+
+        # remove the last piece we moved
+        if lastPiece in pieces:
+            pieces.remove(lastPiece)
+
+        # select a piece
+        pieceIndex = random.choice(pieces)
+
+        # swap
+        layout[empty] = layout[pieceIndex]
+        lastPiece = empty  # store this piece index
+
+        layout[pieceIndex] = 0
+        empty = pieceIndex  # store new empty index
 
 
 @app.route('/')
@@ -84,47 +129,12 @@ def send_layout():
     global layout
     data_received = request.get_json()
     data = data_received.get('layout')
-    layout = data
+    layout_1d = []
+    for row in data:
+        layout_1d.extend(row)
+    layout = layout_1d
 # Example usage:
     return jsonify({'message': 'Layout data stored successfully'})
-
-
-@app.route('/add_game', methods=['POST'])
-def add_game():
-    global games
-    data = request.get_json()
-    same_games = [game["id"]
-                  for game in games if data["maker"].lower() == game["maker"].lower()]
-    for id in same_games:
-        games[id]["same_maker_games"].append(len(games))
-
-    steps = data["rules"].split(",")
-
-    new_game = {"id": len(games), "title": data["title"], "image": data["image"], "year": data["year"],
-                "description": data["description"], "maker": data["maker"], "player_number": data["players"],
-                "time": data["time"], "category": data["category"], "steps": steps, "same_maker_games": same_games}
-    games.append(new_game)
-    return jsonify(new_game["id"])
-
-
-@app.route('/edit_game', methods=['POST'])
-def edit_game():
-    global games
-    data = request.get_json()
-    same_games = [game["id"]
-                  for game in games if data["maker"].lower() == game["maker"].lower() and data["id"] != game["id"]]
-    steps = data["rules"].split(",")
-
-    for id in same_games:
-        if int(data["id"]) not in games[id]["same_maker_games"]:
-            games[id]["same_maker_games"].append(int(data["id"]))
-
-    edited_game = {"id": int(data["id"]), "title": data["title"], "image": data["image"], "year": data["year"],
-                   "description": data["description"], "maker": data["maker"], "player_number": data["players"],
-                   "time": data["time"], "category": data["category"], "steps": steps, "same_maker_games": same_games}
-    games[int(data["id"])] = edited_game
-
-    return jsonify(edited_game["id"])
 
 
 if __name__ == '__main__':
