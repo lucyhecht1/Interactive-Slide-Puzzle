@@ -6,7 +6,13 @@ app = Flask(__name__)
 
 # list of descriptions for each step
 description = ["Move the '1' to the top left corner",
-               "Move the '3' to the top center position", 3, 4, 5, 6,7,8]
+               "Move the '3' to the top center position", 
+               "Place the  2 in the center of the entire board", 
+               "Now you can move  the 2 and 3 around to be in order in the top row",
+                "Use the Stack and Slide Strategy! Start by moving the 7 to the middle of the first column", 
+                "Now place the 4 in the center of the entire board" ,
+                "Place the 4 in the center of the entire board",
+                "Shuffle around the last 4 boxes and you are done!"]
 
 # stores the layout of the puzzle at all times
 layout = [[6, 4, 7], [8, 5, 0], [3, 2, 1]]
