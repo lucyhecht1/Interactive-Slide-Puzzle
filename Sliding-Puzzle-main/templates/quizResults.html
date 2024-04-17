@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div>
+    <h1>Quiz Results</h1>
+    <div class="results">
+        <div id="question-1">
+            Question 1: {% if quiz_results[0] %} Passed
+            {% else %} Failed
+            {% endif %}
+            <br> Time Taken: {{time[0]}} seconds
+        </div>
+        <div id="question-2">
+            Question 2: {% if quiz_results[1] %} Passed
+            {% else %} Failed
+            {% endif %}
+            <br> Time Taken: {{time[1]}} seconds
+        </div>
+        <div id="question-3">
+            Question 3: {% if quiz_results[2] %} Passed
+            {% else %} Failed
+            {% endif %}
+            <br> Time Taken: {{time[2]}} seconds
+        </div>
+    </div>
+</div>
+{% endblock %}

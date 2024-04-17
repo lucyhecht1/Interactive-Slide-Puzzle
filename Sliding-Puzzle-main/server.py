@@ -24,6 +24,7 @@ INIT_LAYOUT = [6, 4, 7, 8, 5, 0, 3, 2, 1]
 layout = INIT_LAYOUT
 
 quiz_results = [None, None, None]
+time = [None, None, None]
 
 
 def to2D():
@@ -122,8 +123,11 @@ def send_layout():
 
 @app.route('/success-attempt', methods=['POST'])
 def handle_success_attempt():
+    global time
     data_received = request.get_json()
     question = int(data_received.get('question'))
+    time_remaining = data_received.get('timeRemaining')
+    time[question - 1] = time_remaining
     quiz_results[question-1] = [True]
     # Process the successful attempt data as needed
     # print("Successful attempt! Time remaining:", time_remaining)
@@ -133,13 +137,21 @@ def handle_success_attempt():
 
 @app.route('/failed-attempt', methods=['POST'])
 def handle_failed_attempt():
+    global time_taken
     data_received = request.get_json()
     question = int(data_received.get('question'))
     quiz_results[question-1] = [False]
+    time_taken = data_received.get('timeTaken')
+    time[question - 1] = time_taken
     # Process the failed attempt data as needed
     # print("Failed attempt! Time taken:", time_taken)
     print(f'Question {question} failed')
     return jsonify({"message": "Failed"})
+
+
+@app.route('/results')
+def quizResults():
+    return render_template('quizResults.html', time=time, quiz_results=quiz_results)
 
 
 if __name__ == '__main__':

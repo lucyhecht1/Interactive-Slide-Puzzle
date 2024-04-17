@@ -170,7 +170,7 @@ function checkQuizComplete() {
       if (layout[0][0] == 1 && layout[0][1] == 2 && layout[0][2] == 3) {
         puzzleCompleted = true;
         stopTimer();
-        const timeRemaining = 60 - totalSeconds;
+        const timeRemaining = totalSeconds;
         sendSuccessAttempt(timeRemaining, 1);
         $("#success").text("Success");
         $(".cell:contains('1')").css("background-color", "green");
@@ -191,7 +191,7 @@ function checkQuizComplete() {
       ) {
         puzzleCompleted = true;
         stopTimer();
-        const timeRemaining = 60 - totalSeconds;
+        const timeRemaining = totalSeconds;
         sendSuccessAttempt(timeRemaining, 2);
         $("#success").text("Success");
         $(".cell:contains('1')").css("background-color", "green");
@@ -215,7 +215,7 @@ function checkQuizComplete() {
       ) {
         puzzleCompleted = true;
         stopTimer();
-        const timeRemaining = 60 - totalSeconds;
+        const timeRemaining = totalSeconds;
         sendSuccessAttempt(timeRemaining, 3);
         $("#success").text("Success");
         $(".cell").css("background-color", "green");
