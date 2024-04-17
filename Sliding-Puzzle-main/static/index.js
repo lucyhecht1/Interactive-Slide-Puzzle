@@ -18,6 +18,49 @@ var grid = document.getElementById("confetti");
 isWin = false;
 isShuffle = false;
 isDebug = false;
+
+function solveStep(solution) {
+  solution.forEach(function (step) {
+    let cell = $(".cell.solve:contains(" + step + ")");
+    cell.click();
+    //sleep(40000);
+  });
+}
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function buildPuzzList(layout) {
+  const gridContainer = document.createElement("div");
+  gridContainer.classList.add("grid", "start");
+  for (let i = 0; i < 3; i++) {
+    const rowDiv = document.createElement("div");
+    rowDiv.classList.add("row");
+    for (let j = 0; j < 3; j++) {
+      let index = i * 3 + j;
+      let cellData = layout[index];
+      const cellDiv = document.createElement("div");
+      cellDiv.classList.add("cell");
+      cellDiv.classList.add("solve");
+      cellDiv.setAttribute("data-row", `${i}`);
+      cellDiv.setAttribute("data-col", `${j}`);
+      if (cellData == 0) {
+        cellDiv.id = "empty";
+      } else {
+        const spanElement = document.createElement("span");
+        spanElement.textContent = cellData;
+        // Append the span element to the cell div
+        cellDiv.appendChild(spanElement);
+      }
+
+      // Append the cell div to the row div
+      rowDiv.appendChild(cellDiv);
+    }
+    gridContainer.appendChild(rowDiv);
+  }
+  return gridContainer;
+}
+
 function buildPuzzle(gridArray) {
   // Create the main grid container div
   const gridContainer = document.createElement("div");

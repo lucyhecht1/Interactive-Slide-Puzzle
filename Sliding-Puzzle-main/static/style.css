@@ -77,12 +77,35 @@ h1 {
 	margin: 2px;
 	justify-content: center;
 	box-sizing: border-box;
+	background-color: rgb(221, 221, 221);
+	background-color: white;
 
 	/* border: solid black .5px; */
 }
 
 #empty {
 	background-color: rgba(0, 0, 0, 0);
+}
+#empty-solve {
+	background-color: rgba(0, 0, 0, 0);
+}
+.cell-solve{
+	display: block;
+	transform: translateY(70%);
+	cursor: pointer;
+	width: 31%;
+	height: 93%;
+	float: left;
+	text-align: center;
+	font-size: 150%;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	position: relative;
+	border-radius: 7.5px;
+	background-color: #d8d8dd;
+	margin: 2px;
+	justify-content: center;
+	box-sizing: border-box;
 }
 
 .start .cell {

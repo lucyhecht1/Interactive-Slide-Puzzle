@@ -20,11 +20,13 @@ question = ["Solve the top row in 60 seconds", "Solve the left most column",
             "Solve the remainder of the puzzle"]
 
 INIT_LAYOUT = [6, 4, 7, 8, 5, 0, 3, 2, 1]
+goal = [1, 2, 3, 4, 5, 6, 7, 8, 0]
 # stores the layout of the puzzle at all times
-layout = INIT_LAYOUT
+layout = list(INIT_LAYOUT)
 
 quiz_results = [None, None, None]
 time = [None, None, None]
+solution = []
 
 
 def to2D():
@@ -45,13 +47,13 @@ def surroundingPieces(index):
     return list(filter(None, [left, up, right, down]))
 
 
-def shuffle():
+def shuffle(moves):
     global layout
-    MOVES = 20
+    global solution
     empty = layout.index(0)  # find initial empty index
     lastPiece = empty  # init lastPiece
-
-    for _ in range(MOVES):
+    solution.clear()
+    for _ in range(moves):
         # get surrounding pieces
         pieces = surroundingPieces(empty)
 
@@ -61,6 +63,8 @@ def shuffle():
 
         # select a piece
         pieceIndex = random.choice(pieces)
+
+        solution.insert(0, layout[pieceIndex])
 
         # swap
         layout[empty] = layout[pieceIndex]
@@ -95,7 +99,7 @@ def quiz(question_num):
     global layout
     if question_num == 1:
         layout = INIT_LAYOUT
-        shuffle()
+        shuffle(15)
 
     return render_template('quiz.html', question=question[question_num - 1], question_num=question_num, layout=to2D())
 
@@ -103,10 +107,15 @@ def quiz(question_num):
 @app.route('/learn/<int:id>')
 def learn(id):
     global layout
-    if id == 1:
-        layout = INIT_LAYOUT
-        shuffle()
-    return render_template('learn.html', id=id, description=description[id-1], layout=to2D())
+    global solution
+    '''
+     if id == 1:
+        layout = list(INIT_LAYOUT)
+        shuffle(3)
+    '''
+    layout = list(goal)
+    shuffle(7)
+    return render_template('learn.html', id=id, description=description[id-1], layout=to2D(), solution=solution, lay_list=layout)
 
 
 @app.route('/send_layout', methods=['POST'])
