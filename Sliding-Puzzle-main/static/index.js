@@ -220,6 +220,7 @@ function checkQuizComplete() {
   }
 }
 function startTimer() {
+  totalSeconds = 0;
   if (!timerInterval) {
     timerInterval = setInterval(updateTimer, 1000);
   }

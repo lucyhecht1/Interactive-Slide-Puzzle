@@ -127,6 +127,7 @@ def handle_success_attempt():
     quiz_results[question-1] = [True]
     # Process the successful attempt data as needed
     # print("Successful attempt! Time remaining:", time_remaining)
+    print(f'Question {question} passed')
     return jsonify({"message": "Success"})
 
 
@@ -137,6 +138,7 @@ def handle_failed_attempt():
     quiz_results[question-1] = [False]
     # Process the failed attempt data as needed
     # print("Failed attempt! Time taken:", time_taken)
+    print(f'Question {question} failed')
     return jsonify({"message": "Failed"})
 
 
