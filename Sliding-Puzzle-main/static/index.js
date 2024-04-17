@@ -37,6 +37,19 @@ function buildPuzzle(gridArray) {
       cellDiv.setAttribute("data-row", `${i}`);
       cellDiv.setAttribute("data-col", `${j}`);
 
+      if (i == 0 && rowData[0] == 1 && rowData[1] == 2 && rowData[2] == 3) {
+        cellDiv.style.backgroundColor = "green";
+      }
+      if (
+        gridArray[0][0] == 1 &&
+        gridArray[1][0] == 4 &&
+        gridArray[2][0] == 7
+      ) {
+        if (cellData == 1 || cellData == 4 || cellData == 7) {
+          cellDiv.style.backgroundColor = "green";
+        }
+      }
+
       if (cellData == 0) {
         cellDiv.id = "empty";
       } else {
@@ -156,6 +169,7 @@ function checkStepComplete() {
       if (layout[0][0] == 1) {
         console.log("step 1 complete");
         $("#success").text("Success");
+        // $(".cell:contains('1')").css("background-color", "green");
         return true;
       } else {
         return false;
@@ -184,6 +198,9 @@ function checkStepComplete() {
       if (layout[0][0] == 1 && layout[0][1] == 2 && layout[0][2] == 3) {
         console.log("step 4 complete");
         $("#success").text("Success");
+        $(".cell:contains('1')").css("background-color", "green");
+        $(".cell:contains('2')").css("background-color", "green");
+        $(".cell:contains('3')").css("background-color", "green");
         return true;
       } else {
         return false;
@@ -232,6 +249,8 @@ function checkStepComplete() {
       ) {
         console.log("step 7 complete");
         $("#success").text("Success");
+        $(".cell:contains('4')").css("background-color", "green");
+        $(".cell:contains('7')").css("background-color", "green");
         return true;
       } else {
         return false;
@@ -240,9 +259,19 @@ function checkStepComplete() {
     //last step that finishes puzzle
 
     case 8:
-      if (layout == goal_arr) {
+      if (
+        layout[0][0] == 1 &&
+        layout[0][1] == 2 &&
+        layout[0][2] == 3 &&
+        layout[1][0] == 4 &&
+        layout[1][1] == 5 &&
+        layout[1][2] == 6 &&
+        layout[2][0] == 7 &&
+        layout[2][1] == 8
+      ) {
         console.log("step 8 complete");
         $("#success").text("Success");
+        $(".cell").css("background-color", "green");
         return true;
       } else {
         return false;
