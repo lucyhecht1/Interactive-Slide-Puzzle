@@ -7,8 +7,9 @@ $(document).ready(function () {
 
   // Example puzzle completion logic (adjust as needed)
 
+  
+
   function clickNextBut(){
-    console.log("got her");
     // Click event handler for the next button
     let currentId = window.location.pathname.split('/').pop();
     let nextId = parseInt(currentId) + 1;
@@ -17,6 +18,23 @@ $(document).ready(function () {
         window.location.href = '/quiz/' + nextId;
     }
     )}
-      
+  
+  function startOverBut(){
+    // Click event handler for the start over button
+    $('#startOver').click(function() {
+        window.location.href = '/quiz/1';
+    }
+    )}
+  function showQuizButton(){
+    let currentId = window.location.pathname.split('/').pop();
+    if (currentId == 3){
+        $('#startOver').show()
+    }
+  }
+
+    $('#startOver').hide()
+    showQuizButton();
     clickNextBut();
+    startOverBut();
+
 });
