@@ -11,15 +11,20 @@
 </h2>
 
 <h3>{{question}}</h3>
-
-<div id="source">
+<h2 id="timer">00:00</h2>
+<div id="success" data-step = '{{question_num}}'></div>
+<div id="source" data-mode="quiz">
 <button id="backButton" >Back</button>
 <button id="nextButton" >Next</button>
 <button id="hintButton">Give me a hint</button>
+<button id="startBtn" >Start</button>
 
 </div>
 <script>
-
+let lay = '{{ layout | tojson | safe }}';
+let grid_use = JSON.parse(lay);
+let sourceDiv = document.getElementById('source');
+sourceDiv.appendChild(buildPuzzle(grid_use));
 
 
 

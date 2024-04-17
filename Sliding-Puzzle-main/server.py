@@ -14,13 +14,16 @@ description = ["Move the '1' to the top left corner",
                "Use the Stack and Slide Strategy! Start by moving the 7 to the middle of the first column",
                "Now place the 4 in the center of the entire board",
                "Now you can move  the 7 and 4 around to be in order in the first column",
-               "Shuffle around the last 4 boxes and you are done!"]
+               "Shuffle around the last 3 boxes and you are done!"]
 
-question = ["Solve the left most column",2,3]
+question = ["Solve the top row in 60 seconds", "Solve the left most column",
+            "Solve the remainder of the puzzle"]
 
 INIT_LAYOUT = [6, 4, 7, 8, 5, 0, 3, 2, 1]
 # stores the layout of the puzzle at all times
 layout = INIT_LAYOUT
+
+quiz_results = [None, None, None]
 
 
 def to2D():
@@ -88,23 +91,12 @@ def strategy(origin_page):
 
 @app.route('/quiz/<int:question_num>')
 def quiz(question_num):
-    return render_template('quiz.html', question=question[question_num -1], question_num=question_num)
+    global layout
+    if question_num == 1:
+        layout = INIT_LAYOUT
+        shuffle()
 
-
-@app.route('/result', methods=["GET"])
-def results():
-    global games
-    search_query = request.args.get('query', '').strip().lower()
-    title_results = [
-        game for game in games if search_query in game["title"].lower()]
-    maker_results = [
-        game for game in games if search_query in game["maker"].lower()]
-    cat_results = [
-        game for game in games if search_query in game["category"].lower()]
-    results = {"title": title_results,
-               "maker": maker_results, "cat": cat_results}
-    num_matches = len(title_results) + len(maker_results) + len(cat_results)
-    return render_template('search_results.html', results=results, search_query=search_query, num_matches=num_matches)
+    return render_template('quiz.html', question=question[question_num - 1], question_num=question_num, layout=to2D())
 
 
 @app.route('/learn/<int:id>')
@@ -113,23 +105,6 @@ def learn(id):
     if id == 1:
         layout = INIT_LAYOUT
     return render_template('learn.html', id=id, description=description[id-1], layout=to2D())
-
-
-@app.route('/edit/<int:entry_id>')
-def edit(entry_id):
-    global games
-    game = games[entry_id]
-    return render_template('edit.html', game=game)
-
-
-@app.route('/autocomplete_data')
-def autocomplete_data():
-    global games
-    titles = [game.get('title') for game in games]
-    makers = [game.get('maker') for game in games]
-    cat = [game.get('category') for game in games]
-    data = list(set(titles + makers + cat))
-    return jsonify(data)
 
 
 @app.route('/send_layout', methods=['POST'])
@@ -143,6 +118,26 @@ def send_layout():
     layout = layout_1d
 # Example usage:
     return jsonify({'message': 'Layout data stored successfully'})
+
+
+@app.route('/success-attempt', methods=['POST'])
+def handle_success_attempt():
+    data_received = request.get_json()
+    question = int(data_received.get('question'))
+    quiz_results[question-1] = [True]
+    # Process the successful attempt data as needed
+    # print("Successful attempt! Time remaining:", time_remaining)
+    return jsonify({"message": "Success"})
+
+
+@app.route('/failed-attempt', methods=['POST'])
+def handle_failed_attempt():
+    data_received = request.get_json()
+    question = int(data_received.get('question'))
+    quiz_results[question-1] = [False]
+    # Process the failed attempt data as needed
+    # print("Failed attempt! Time taken:", time_taken)
+    return jsonify({"message": "Failed"})
 
 
 if __name__ == '__main__':

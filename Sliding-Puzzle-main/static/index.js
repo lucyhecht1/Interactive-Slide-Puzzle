@@ -7,6 +7,9 @@ var goal_arr = [
   [7, 8, 0],
 ];
 heur = "mis";
+let timerInterval;
+let totalSeconds = 0;
+let puzzleCompleted = false;
 
 var grid = document.getElementById("confetti");
 // document.body.appendChild(grid);
@@ -76,8 +79,11 @@ function moveTile() {
   if (isDebug) console.log(pos);
   var posRow = parseInt($(this).attr("data-row"));
   var posCol = parseInt($(this).attr("data-col"));
-  if (checkStepComplete() == true) {
-    return;
+  let parent = $(this).parent().parent().parent();
+  if (parent.attr("data-mode") != "quiz") {
+    if (checkStepComplete() == true) {
+      return;
+    }
   }
   // Move tile down
   if (posRow + 1 == emptyTileRow && posCol == emptyTileCol) {
@@ -139,12 +145,138 @@ function moveTile() {
   $("#empty").attr("data-col", emptyTileCol);
   sendLayout(getCurrentTileState());
 
-  checkStepComplete();
+  if (parent.attr("data-mode") == "quiz") {
+    checkQuizComplete();
+  } else {
+    checkStepComplete();
+  }
 
   // party.confetti(grid)
   if (!isShuffle) checkWinState();
 }
+function checkQuizComplete() {
+  $("#success").text("");
+  let question = $("#success").attr("data-step");
+  let layout = getCurrentTileState();
+  switch (parseInt(question)) {
+    case 1:
+      if (layout[0][0] == 1 && layout[0][1] == 2 && layout[0][2] == 3) {
+        puzzleCompleted = true;
+        stopTimer();
+        const timeRemaining = 60 - totalSeconds;
+        sendSuccessAttempt(timeRemaining, 1);
+        $("#success").text("Success");
+        $(".cell:contains('1')").css("background-color", "green");
+        $(".cell:contains('2')").css("background-color", "green");
+        $(".cell:contains('3')").css("background-color", "green");
+        return true;
+      } else {
+        return false;
+      }
+      break;
+    case 2:
+      if (
+        layout[0][0] == 1 &&
+        layout[0][1] == 2 &&
+        layout[0][2] == 3 &&
+        layout[1][0] == 4 &&
+        layout[2][0] == 7
+      ) {
+        puzzleCompleted = true;
+        stopTimer();
+        const timeRemaining = 60 - totalSeconds;
+        sendSuccessAttempt(timeRemaining, 2);
+        $("#success").text("Success");
+        $(".cell:contains('1')").css("background-color", "green");
+        $(".cell:contains('4')").css("background-color", "green");
+        $(".cell:contains('7')").css("background-color", "green");
+        return true;
+      } else {
+        return false;
+      }
+      break;
+    case 3:
+      if (
+        layout[0][0] == 1 &&
+        layout[0][1] == 2 &&
+        layout[0][2] == 3 &&
+        layout[1][0] == 4 &&
+        layout[2][0] == 7 &&
+        layout[1][1] == 5 &&
+        layout[1][2] == 6 &&
+        layout[2][1] == 8
+      ) {
+        puzzleCompleted = true;
+        stopTimer();
+        const timeRemaining = 60 - totalSeconds;
+        sendSuccessAttempt(timeRemaining, 3);
+        $("#success").text("Success");
+        $(".cell").css("background-color", "green");
+        return true;
+      } else {
+        return false;
+      }
+      break;
+  }
+}
+function startTimer() {
+  if (!timerInterval) {
+    timerInterval = setInterval(updateTimer, 1000);
+  }
+}
 
+function updateTimer() {
+  if (!puzzleCompleted) {
+    totalSeconds++;
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = totalSeconds % 60;
+    const formattedTime = `${padZero(minutes)}:${padZero(seconds)}`;
+    document.getElementById("timer").textContent = formattedTime;
+
+    if (totalSeconds >= 60) {
+      stopTimer();
+      sendFailedAttempt($("#success").attr("data-step"));
+    }
+  }
+}
+
+function stopTimer() {
+  clearInterval(timerInterval);
+  timerInterval = null;
+}
+
+function padZero(value) {
+  return value < 10 ? "0" + value : value;
+}
+function sendSuccessAttempt(timeRemaining, question) {
+  $.ajax({
+    type: "POST",
+    url: "/success-attempt",
+    contentType: "application/json",
+    data: JSON.stringify({ question: question, timeRemaining: timeRemaining }),
+    success: function (response) {
+      console.log("Success attempt sent:", response);
+    },
+    error: function (err) {
+      console.error("Error sending success attempt:", err);
+    },
+  });
+}
+
+function sendFailedAttempt(question) {
+  $.ajax({
+    type: "POST",
+    url: "/failed-attempt",
+    contentType: "application/json",
+    data: JSON.stringify({ question: question, timeTaken: totalSeconds }),
+    success: function (response) {
+      console.log("Failed attempt sent:", response);
+    },
+    error: function (err) {
+      console.error("Error sending failed attempt:", err);
+    },
+  });
+}
 function sendLayout(layout) {
   // Send the layout data to Flask using AJAX
   $.ajax({
