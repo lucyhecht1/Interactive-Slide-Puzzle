@@ -16,6 +16,8 @@ description = ["Move the '1' to the top left corner",
                "Now you can move  the 7 and 4 around to be in order in the first column",
                "Shuffle around the last 4 boxes and you are done!"]
 
+question = ["Solve the left most column",2,3]
+
 INIT_LAYOUT = [6, 4, 7, 8, 5, 0, 3, 2, 1]
 # stores the layout of the puzzle at all times
 layout = INIT_LAYOUT
@@ -82,6 +84,11 @@ def col():
 @app.route('/strategy/<int:origin_page>')
 def strategy(origin_page):
     return render_template('strategy.html', origin_page=origin_page)
+
+
+@app.route('/quiz/<int:question_num>')
+def quiz(question_num):
+    return render_template('quiz.html', question=question[question_num -1], question_num=question_num)
 
 
 @app.route('/result', methods=["GET"])

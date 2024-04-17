@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='quiz.js') }}"></script>
+</head>
+
+<h2>
+    Question {{question_num}}
+</h2>
+
+<h3>{{question}}</h3>
+
+<div id="source">
+<button id="backButton" >Back</button>
+<button id="nextButton" >Next</button>
+<button id="hintButton">Give me a hint</button>
+
+</div>
+<script>
+
+
+
+
+// Handler for view item button
+
+</script>
+{% endblock %}
