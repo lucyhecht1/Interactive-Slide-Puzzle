@@ -13,7 +13,7 @@ description = ["Move the '1' to the top left corner",
                "Now you can move  the 2 and 3 around to be in order in the top row",
                "Use the Stack and Slide Strategy! Start by moving the 7 to the middle of the first column",
                "Now place the 4 in the center of the entire board",
-               "Place the 4 in the center of the entire board",
+               "Now you can move  the 7 and 4 around to be in order in the first column",
                "Shuffle around the last 4 boxes and you are done!"]
 
 INIT_LAYOUT = [6, 4, 7, 8, 5, 0, 3, 2, 1]
