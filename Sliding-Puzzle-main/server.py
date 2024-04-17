@@ -16,8 +16,9 @@ description = ["Move the '1' to the top left corner",
                "Place the 4 in the center of the entire board",
                "Shuffle around the last 4 boxes and you are done!"]
 
+INIT_LAYOUT = [6, 4, 7, 8, 5, 0, 3, 2, 1]
 # stores the layout of the puzzle at all times
-layout = [6, 4, 7, 8, 5, 0, 3, 2, 1]
+layout = INIT_LAYOUT
 
 
 def to2D():
@@ -40,7 +41,7 @@ def surroundingPieces(index):
 
 def shuffle():
     global layout
-    MOVES = 25
+    MOVES = 20
     empty = layout.index(0)  # find initial empty index
     lastPiece = empty  # init lastPiece
 
@@ -101,8 +102,9 @@ def results():
 
 @app.route('/learn/<int:id>')
 def learn(id):
+    global layout
     if id == 1:
-        shuffle()
+        layout = INIT_LAYOUT
     return render_template('learn.html', id=id, description=description[id-1], layout=to2D())
 
 
