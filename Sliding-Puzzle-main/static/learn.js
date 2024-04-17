@@ -11,6 +11,11 @@ $(document).ready(function() {
     $('#nextButton').hide()
     showNextButton();
     clickNext();
+    
+    $('#quizButton').hide()
+    showQuizButton();
+    clickQuiz();
+    
 });
 // Hide the view item button initially
 
@@ -29,6 +34,13 @@ function showNextButton(){
     var currentId = window.location.pathname.split('/').pop();
     if (currentId != 8){
         $('#nextButton').show()
+    }
+}   
+
+function showQuizButton(){
+    var currentId = window.location.pathname.split('/').pop();
+    if (currentId == 8){
+        $('#quizButton').show()
     }
 }
 
@@ -78,6 +90,13 @@ function clickStrategy(){
     $('#strategyButton').click(function() {
         window.location.href = '/strategy/' + origin_page;
         // passing in the origin_page
+        })
+}
+
+function clickQuiz(){
+    // Click event handler for the next button
+    $('#quizButton').click(function() {
+        window.location.href = '/quiz/1';
         })
 }
 
