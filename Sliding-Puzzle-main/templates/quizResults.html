@@ -23,5 +23,26 @@
             <br> Time Taken: {{time[2]}} seconds
         </div>
     </div>
+    <div>
+        <button id="retakeQuiz" class="styled-button">Retake quiz</button>
+        <button id="solvePuzzle" class="styled-button">Solve a Puzzle</button>
+        <script>
+
+            function retakeQuizBut() {
+                // Click event handler for the retake quiz button
+                $("#retakeQuiz").click(function () {
+                window.location.href = "/quiz/1";
+                });
+            }
+            function solvePuzzleBut() {
+                // Click event handler for the retake quiz button
+                $("#solvePuzzle").click(function () {
+                window.location.href = "/quiz/1";  //ADD ROUTE FOR SOLVE PUZZLE
+                });
+            }
+            retakeQuizBut();
+            solvePuzzleBut();
+        </script>
+    </div>
 </div>
 {% endblock %}

@@ -16,19 +16,6 @@ $(document).ready(function () {
     });
   }
 
-  function startOverBut() {
-    // Click event handler for the start over button
-    $("#startOver").click(function () {
-      window.location.href = "/quiz/1";
-    });
-  }
-  function showQuizButton() {
-    let currentId = window.location.pathname.split("/").pop();
-    if (currentId == 3) {
-      $("#startOver").show();
-    }
-  }
-
   function showResultsButton() {
     let currentId = window.location.pathname.split("/").pop();
     if (currentId == 3) {
@@ -36,10 +23,7 @@ $(document).ready(function () {
     }
   }
 
-  $("#startOver").hide();
   $("#resultsButton").hide();
-  showQuizButton();
   clickNextBut();
-  startOverBut();
   showResultsButton();
 });
