@@ -1,5 +1,6 @@
 let emptyTileRow = 0;
 let emptyTileCol = 0;
+let timerOn = false;
 var cellDisplacement = "66.5px";
 var goal_arr = [
   [1, 2, 3],
@@ -84,7 +85,13 @@ function moveTile() {
     if (checkStepComplete() == true) {
       return;
     }
+  } else {
+    if (!timerOn) {
+      console.log("starting timer");
+      startTimer();
+    }
   }
+
   // Move tile down
   if (posRow + 1 == emptyTileRow && posCol == emptyTileCol) {
     $(this).animate({
@@ -221,6 +228,7 @@ function checkQuizComplete() {
 }
 function startTimer() {
   totalSeconds = 0;
+  timerOn = true;
   if (!timerInterval) {
     timerInterval = setInterval(updateTimer, 1000);
   }
@@ -244,6 +252,7 @@ function updateTimer() {
 function stopTimer() {
   clearInterval(timerInterval);
   timerInterval = null;
+  timerOn = false;
 }
 
 function padZero(value) {
