@@ -105,6 +105,7 @@ def learn(id):
     global layout
     if id == 1:
         layout = INIT_LAYOUT
+        shuffle()
     return render_template('learn.html', id=id, description=description[id-1], layout=to2D())
 
 

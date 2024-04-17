@@ -86,6 +86,9 @@ function moveTile() {
       return;
     }
   } else {
+    if (checkQuizComplete() == true) {
+      return;
+    }
     if (!timerOn) {
       console.log("starting timer");
       startTimer();
