@@ -216,3 +216,12 @@ h1 {
 .title-layout{
 	font-size: x-large;
 }
+
+#header{
+	font-weight: bold;
+}
+
+#left{
+	text-align: left;
+
+}
