@@ -6,22 +6,43 @@
     <script type="text/javascript" src="{{ url_for('static', filename='learn.js') }}"></script>
 </head>
 
-<h2>
-    Step {{id}}
-</h2>
+<div class="row">
+    <div class="col-md-4 mt-4">
+        <h2> Step {{id}} </h2>
+        <h3>{{description}}</h3>
+    </div>
 
-<h3>{{description}}</h3>
-<div id="success" data-step = '{{id}}'></div>
-<div id="source">
-<button id="backButton" class="styled-button">Back</button>
-<button id="nextButton" class="styled-button">Next</button>
-<button id="strategyButton" class="styled-button">Stack and Slide Strategy</button>
-<button id="quizButton" class="styled-button">Quiz yourself</button>
+    <div class="col-md-4 mt-4 text-center justify-content-center align-items-center">
+        <div id="success" data-step = '{{id}}'></div>
+        <div id="source">
+        </div>
+        <button id="backButton" class="styled-button mt-3">Back</button>
+        <button id="quizButton" class="styled-button mt-3">Quiz yourself</button>
+        <button id="nextButton" class="styled-button mt-3">Next</button>
+    </div>
 
+    <div class="col-md-4 mt-4">
+        <!--Roll down - show solution -->
+        <button id="strategyButton" class="styled-button">Stack and Slide Strategy</button>
+            <div id="strategy" class="strategy-container">
+                <h4>Stack and Slide Strategy</h4>
+                <p> In such a scenario, when we need to add two more elements to a row or collumn: <br></p>
+            </div>
+            
+        <br>
 
+        <button id="instructionsButton" class="styled-button">Show me How</button>
+            <div id="instructions" class="instructions-container">
+                <p>This is where we will add instructions or a blurb.</p>
+                <p>The GIF showing the user what to do will go here:</p>
+                
+                <div id="visual">
+                    <button id="showSolution" class="styled-button">Show Solution</button>
+                </div>
+            </div>
+            
+    </div>
 </div>
-<div id="visual"></div>
-<button id="showSolution" class="styled-button">Show Solution</button>
 
 <script>
 
@@ -40,9 +61,6 @@ let solution = JSON.parse(sol);
 $("#showSolution").click(function(){
     solveStep(solution)
 })
-
-
-// Handler for view item button
 
 </script>
 {% endblock %}

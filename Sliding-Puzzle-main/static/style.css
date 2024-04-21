@@ -4,7 +4,7 @@ html {
 }
 h1 {
 	font-weight: bold;
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, serif;
 	text-align: center;
 }
 .container {
@@ -35,7 +35,7 @@ h1 {
 }
 
 .grid-container h2 {
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, serif;
 }
 
 .grid {
@@ -69,7 +69,7 @@ h1 {
 	float: left;
 	text-align: center;
 	font-size: 150%;
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: Arial, Helvetica, serif;
 	font-weight: bold;
 	position: relative;
 	border-radius: 7.5px;
@@ -98,7 +98,7 @@ h1 {
 	float: left;
 	text-align: center;
 	font-size: 150%;
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: Arial, Helvetica, serif;
 	font-weight: bold;
 	position: relative;
 	border-radius: 7.5px;
@@ -169,7 +169,7 @@ h1 {
 	font-weight: bold;
 	margin: auto;
 	padding: 5px;
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: Arial, Helvetica, serif;
 	text-align: left;
 }
 
@@ -250,4 +250,22 @@ h1 {
 }
 #homeDive{
 	text-align: center;
+}
+
+.instructions-container {
+    display: none; /* Initially hide the instructions */
+    padding: 20px;
+	background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.strategy-container {
+    display: none;
+    padding: 20px;
+	background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 10px;
 }

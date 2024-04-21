@@ -2,7 +2,6 @@ $(document).ready(function() {
 
     $('#strategyButton').hide()
     show_strategy_Button();
-    clickStrategy()
 
     $('#backButton').hide()
     showBackButton();
@@ -15,11 +14,17 @@ $(document).ready(function() {
     $('#quizButton').hide()
     showQuizButton();
     clickQuiz();
+
+    $('#strategyButton').on('click', function() {
+        $('#strategy').slideToggle();
+    });
+
+    $('#instructionsButton').on('click', function() {
+        $('#instructions').slideToggle();
+    });
     
 });
 // Hide the view item button initially
-
-
 
 // Show the next button when the page is loaded
 
@@ -84,20 +89,9 @@ function clickNext(){
     });
 }
 
-function clickStrategy(){
-    // Click event handler for the next button
-    let origin_page = window.location.pathname.split('/').pop();
-    $('#strategyButton').click(function() {
-        window.location.href = '/strategy/' + origin_page;
-        // passing in the origin_page
-        })
-}
-
 function clickQuiz(){
-    // Click event handler for the next button
     $('#quizButton').click(function() {
         window.location.href = '/quiz/1';
         })
 }
-
 
