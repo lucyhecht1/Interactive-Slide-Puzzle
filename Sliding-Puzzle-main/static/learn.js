@@ -71,10 +71,12 @@ function clickNext(){
     // Click event handler for the next button
     let currentId = window.location.pathname.split('/').pop();
     $('#nextButton').click(function() {
-        if(currentId == 1){
-            window.location.href = '/strategy/' + 1;
+    
+        /* getting rid of the popup */
+         if(currentId == 1){
+            window.location.href = '/learn/2';
         }
-
+        
         else if(currentId == 4){
             window.location.href = '/col';
         }
