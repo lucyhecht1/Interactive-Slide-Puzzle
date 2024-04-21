@@ -1,6 +1,7 @@
-html {
-	/*background-color: rgb(77, 119, 174);*/
-	color: azure;
+.custom-body {
+	font-family: serif;
+	background-color:  #f9ffea; 
+	color: #333333;
 }
 h1 {
 	font-weight: bold;
@@ -30,8 +31,7 @@ h1 {
 	text-align: center;
 	width: 50%;
 	display: table;
-	margin: auto;
-	
+	margin: auto;	
 }
 
 .grid-container h2 {
@@ -40,16 +40,15 @@ h1 {
 
 .grid {
 	background-color: rgb(248, 248, 248);
-	border: solid 5px rgb(249, 90, 0);
 	width: 210px;
 	height: 210px;
 	margin-left: auto;
 	margin-right: auto;
-	border-radius: 3px;
-	box-shadow: 5px 5px rgb(6, 6, 165), 5px 5px #0c0c24;
+	border-radius: 5px;
 	overflow: auto;
 	color: navy;
-	background-color: rgb(77, 119, 174);
+	background-color:  #db5d91;
+	padding: 5px;
 }
 
 .row {
@@ -60,7 +59,6 @@ h1 {
 	align-content: center;
 	margin-left: .1%;
 }
-
 .cell {
 	/* width: 68px;
 	height: 68px; */
@@ -77,7 +75,6 @@ h1 {
 	margin: 2px;
 	justify-content: center;
 	box-sizing: border-box;
-	background-color: rgb(221, 221, 221);
 	background-color: white;
 
 	/* border: solid black .5px; */
@@ -112,7 +109,6 @@ h1 {
 	cursor: pointer;
 
 }
-
 .cell:hover {
 	background-color: rgb(221, 221, 221);
 	background-color: white;
@@ -122,7 +118,6 @@ h1 {
 	display: block;
 	transform: translateY(70%);
 }
-
 .solver {
 	display: flex;
 	flex-direction: column;
@@ -159,8 +154,6 @@ h1 {
 	background-color: rgb(11, 166, 0);
 	color: azure	;
 }
-
-
 #panel {
 	width: 100%;
 	background-color: rgb(7,7,94);
@@ -178,6 +171,10 @@ h1 {
 	#goal {
 			display: none;
 	}
+}
+
+.top-padding{
+	padding-top: 100px;
 }
 
 .popup {
@@ -215,17 +212,11 @@ h1 {
 }
 
 /* learnRow */
-.custom-body {
-	font-family: serif;
-	background-color: #f2f2f2;
-	color: #333333;
-}
-
 .styled-button {
 	margin-top: 5px;
 	padding: 5px 13px;
 	border: none;
-	background-color: #666666;
+	background-color: #db5d91;
 	color: #ffffff;
 	font-size: 16px;
 	cursor: pointer;
@@ -233,7 +224,7 @@ h1 {
 	transition: background-color 0.3s ease;
 }
 .styled-button:hover {
-	background-color: #555555;
+	background-color:  #548f9d;
 }
 
 .title-layout{
