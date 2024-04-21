@@ -252,8 +252,12 @@ h1 {
 	text-align: center;
 }
 
+
+/* Show me How && Stack and Slide straetgy buttons: */
+
 .instructions-container {
     display: none; /* Initially hide the instructions */
+	position: absolute; 
     padding: 20px;
 	background-color: #f9f9f9;
     border: 1px solid #ddd;
