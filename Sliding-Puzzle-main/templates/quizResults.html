@@ -1,48 +1,61 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<div>
-    <h1>Quiz Results</h1>
-    <div class="results">
-        <div id="question-1">
-            Question 1: {% if quiz_results[0] %} Passed
-            {% else %} Failed
-            {% endif %}
-            <br> Time Taken: {{time[0]}} seconds
-        </div>
-        <div id="question-2">
-            Question 2: {% if quiz_results[1] %} Passed
-            {% else %} Failed
-            {% endif %}
-            <br> Time Taken: {{time[1]}} seconds
-        </div>
-        <div id="question-3">
-            Question 3: {% if quiz_results[2] %} Passed
-            {% else %} Failed
-            {% endif %}
-            <br> Time Taken: {{time[2]}} seconds
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="text-center mb-4">Quiz Results</h1>
         </div>
     </div>
-    <div>
-        <button id="retakeQuiz" class="styled-button">Retake quiz</button>
-        <button id="solvePuzzle" class="styled-button">Solve a Puzzle</button>
-        <script>
-
-            function retakeQuizBut() {
-                // Click event handler for the retake quiz button
-                $("#retakeQuiz").click(function () {
-                window.location.href = "/quiz/1";
-                });
-            }
-            function solvePuzzleBut() {
-                // Click event handler for the retake quiz button
-                $("#solvePuzzle").click(function () {
-                window.location.href = "/quiz/1";  //ADD ROUTE FOR SOLVE PUZZLE
-                });
-            }
-            retakeQuizBut();
-            solvePuzzleBut();
-        </script>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="mt-4 results">
+                <div id="question-1">
+                    Question 1: {% if quiz_results[0] %} Passed {% else %} Failed {% endif %}
+                    <br> Time Taken: {{time[0]}} seconds
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="mt-4 results">
+                <div id="question-2">
+                    Question 2: {% if quiz_results[1] %} Passed {% else %} Failed {% endif %}
+                    <br> Time Taken: {{time[1]}} seconds
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="mt-4 results">
+                <div id="question-3">
+                    Question 3: {% if quiz_results[2] %} Passed {% else %} Failed {% endif %}
+                    <br> Time Taken: {{time[2]}} seconds
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+<div class="row">
+    <div class="col-md-12 text-center">
+        <button id="retakeQuiz" class="styled-button">Retake quiz</button>
+        <button id="solvePuzzle" class="styled-button">Solve a Puzzle</button>
+    </div>
+</div>
+
+<script>
+    function retakeQuizBut() {
+        // Click event handler for the retake quiz button
+        $("#retakeQuiz").click(function () {
+        window.location.href = "/quiz/1";
+        });
+    }
+    function solvePuzzleBut() {
+        // Click event handler for the retake quiz button
+        $("#solvePuzzle").click(function () {
+        window.location.href = "/quiz/1";  //ADD ROUTE FOR SOLVE PUZZLE
+        });
+    }
+    retakeQuizBut();
+    solvePuzzleBut();
+</script>
+
 {% endblock %}
