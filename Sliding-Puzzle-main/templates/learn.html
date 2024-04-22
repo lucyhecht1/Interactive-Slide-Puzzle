@@ -8,14 +8,13 @@
 
 <div class="row">
     <div class="col-md-4">
-        <h2> Step {{id}} </h2>
+        <h2> <strong>Step {{id}} </strong> </h2>
         <h3>{{description}}</h3>
     </div>
 
     <div class="col-md-4 text-center justify-content-center align-items-center top-padding">
         <div id="success" data-step = '{{id}}'></div>
-        <div id="source">
-        </div>
+        <div id="source"> </div>
         <button id="backButton" class="styled-button mt-3">Back</button>
         <button id="quizButton" class="styled-button mt-3">Quiz yourself</button>
         <button id="nextButton" class="styled-button mt-3">Next</button>
@@ -26,22 +25,48 @@
         <button id="strategyButton" class="styled-button">Stack and Slide Strategy</button>
             <div id="strategy" class="strategy-container">
                 <h4>Stack and Slide Strategy</h4>
-                <p> In such a scenario, when we need to add two more elements to a row or collumn: <br></p>
+                <p>
+                    It may seem confusing at first, but you'll get it!
+                    <br><br>
+                    <strong>For rows:</strong> Place the tile with the higher number where the one with the lower number should go. Then, put the lower-numbered tile right below it.
+                    <br><br>
+                    <strong>For columns:</strong> use the same technique, but align them side by side.
+                    <br><br>
+                    Once you've set them up like this, shuffling them into the correct spots becomes super easy—you'll see!
+                    <br><br>
+                </p>
+                    <video width="210" height="200" controls>
+                        <source src="{{ url_for('static', filename='images/s+s_23.mp4') }}" type="video/mp4">
+                    </video>
+                    <video width="210" height="200" controls>
+                        <source src="{{ url_for('static', filename='images/s+s_47.mp4') }}" type="video/mp4">
+                    </video>
+                
             </div>
             
         <br>
 
         <button id="instructionsButton" class="styled-button">Show me How</button>
             <div id="instructions" class="instructions-container">
-                <p>This is where we will add instructions or a blurb.</p>
-                <p>The GIF showing the user what to do will go here:</p>
+                <p> Note:   There are <strong>many</strong> different ways you can move the tiles to achieve your
+                desired result. This video might not be your exact board, but it could inspire movement!</p>
                 
+                <video width="320" height="240" controls>
+                    <source src="{{ url_for('static', filename='images/good1.mp4') }}" type="video/mp4">
+                </video> 
+
+                <br>
+                I--Lucy--put that video in^^. Below is Judah's code. Didn't want to get rid
+                of it yet, but I like my idea :) We could make all the videos and then upload
+                their file names into a dictionary and use curly braces so that the correct video plays on the correct slide
+                _____________________________________________
                 <div id="visual">
                     <button id="showSolution" class="styled-button">Show Solution</button>
                 </div>
             </div>
             
     </div>
+
 </div>
 
 <script>

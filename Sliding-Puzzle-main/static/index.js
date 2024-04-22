@@ -85,7 +85,7 @@ function buildPuzzle(gridArray) {
       cellDiv.setAttribute("data-col", `${j}`);
 
       if (i == 0 && rowData[0] == 1 && rowData[1] == 2 && rowData[2] == 3) {
-        cellDiv.style.backgroundColor = "green";
+        cellDiv.style.backgroundColor = "yellow";
       }
       if (
         gridArray[0][0] == 1 &&
@@ -93,7 +93,7 @@ function buildPuzzle(gridArray) {
         gridArray[2][0] == 7
       ) {
         if (cellData == 1 || cellData == 4 || cellData == 7) {
-          cellDiv.style.backgroundColor = "green";
+          cellDiv.style.backgroundColor = "yellow";
         }
       }
 
@@ -219,9 +219,9 @@ function checkQuizComplete() {
         const timeRemaining = totalSeconds;
         sendSuccessAttempt(timeRemaining, 1);
         $("#success").text("Success");
-        $(".cell:contains('1')").css("background-color", "green");
-        $(".cell:contains('2')").css("background-color", "green");
-        $(".cell:contains('3')").css("background-color", "green");
+        $(".cell:contains('1')").css("background-color", "yellow");
+        $(".cell:contains('2')").css("background-color", "yellow");
+        $(".cell:contains('3')").css("background-color", "yellow");
         return true;
       } else {
         return false;
@@ -240,9 +240,9 @@ function checkQuizComplete() {
         const timeRemaining = totalSeconds;
         sendSuccessAttempt(timeRemaining, 2);
         $("#success").text("Success");
-        $(".cell:contains('1')").css("background-color", "green");
-        $(".cell:contains('4')").css("background-color", "green");
-        $(".cell:contains('7')").css("background-color", "green");
+        $(".cell:contains('1')").css("background-color", "yellow");
+        $(".cell:contains('4')").css("background-color", "yellow");
+        $(".cell:contains('7')").css("background-color", "yellow");
         return true;
       } else {
         return false;
@@ -264,7 +264,7 @@ function checkQuizComplete() {
         const timeRemaining = totalSeconds;
         sendSuccessAttempt(timeRemaining, 3);
         $("#success").text("Success");
-        $(".cell").css("background-color", "green");
+        $(".cell").css("background-color", "yellow");
         return true;
       } else {
         return false;
@@ -357,7 +357,7 @@ function checkStepComplete() {
       if (layout[0][0] == 1) {
         console.log("step 1 complete");
         $("#success").text("Success");
-        // $(".cell:contains('1')").css("background-color", "green");
+        // $(".cell:contains('1')").css("background-color", "yellow");
         return true;
       } else {
         return false;
@@ -386,9 +386,9 @@ function checkStepComplete() {
       if (layout[0][0] == 1 && layout[0][1] == 2 && layout[0][2] == 3) {
         console.log("step 4 complete");
         $("#success").text("Success");
-        $(".cell:contains('1')").css("background-color", "green");
-        $(".cell:contains('2')").css("background-color", "green");
-        $(".cell:contains('3')").css("background-color", "green");
+        $(".cell:contains('1')").css("background-color", "yellow");
+        $(".cell:contains('2')").css("background-color", "yellow");
+        $(".cell:contains('3')").css("background-color", "yellow");
         return true;
       } else {
         return false;
@@ -437,8 +437,8 @@ function checkStepComplete() {
       ) {
         console.log("step 7 complete");
         $("#success").text("Success");
-        $(".cell:contains('4')").css("background-color", "green");
-        $(".cell:contains('7')").css("background-color", "green");
+        $(".cell:contains('4')").css("background-color", "yellow");
+        $(".cell:contains('7')").css("background-color", "yellow");
         return true;
       } else {
         return false;
@@ -459,7 +459,7 @@ function checkStepComplete() {
       ) {
         console.log("step 8 complete");
         $("#success").text("Success");
-        $(".cell").css("background-color", "green");
+        $(".cell").css("background-color", "yellow");
         return true;
       } else {
         return false;
