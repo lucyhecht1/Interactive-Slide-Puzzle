@@ -363,3 +363,15 @@ h1 {
 .no-pad{
 	margin-top: 0%;
 }
+
+.step-box{
+	margin-left: 10%;
+}
+
+.top-padding-less{
+padding-top: 20%;
+}
+
+.step-box{
+	padding-top: 20%;
+}
