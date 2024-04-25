@@ -1,38 +1,108 @@
 {% extends "layout.html" %}
 
 {% block content %}
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="data:,">
+</head>
+
+
+</head>
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h1 class="text-center mb-4">Quiz Results</h1>
+            <h1 class="text-center mb-4 center">Quiz Results</h1>
         </div>
     </div>
+
+    
+   
     <div class="row">
         <div class="col-md-4">
-            <div class="mt-4 results">
-                <div id="question-1">
-                    Question 1: {% if quiz_results[0] %} Passed {% else %} Failed {% endif %}
-                    <br> Time Taken: {{time[0]}} seconds
+            <div class="mt-4 results center">
+                <div class="card Q-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Question 1</h5>
+                        <span> <i class="card-text fa-regular fa-clock fa-flip-horizontal fa-sm"></i></span>
+                            <span class="card-text">{{ time[0] }} seconds</p></span>
+                        
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="container-fluid check_container">
+                                    {% if quiz_results[0] %}
+                                        <div class="passed-icon"><i class="fa-solid fa-star fa-beat"></i></div>
+                                    {% else %}
+                                        <div class="failed-icon"><i class="fa-regular fa-star"></i></div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+         
+    
         <div class="col-md-4">
-            <div class="mt-4 results">
-                <div id="question-2">
-                    Question 2: {% if quiz_results[1] %} Passed {% else %} Failed {% endif %}
-                    <br> Time Taken: {{time[1]}} seconds
+            <div class="mt-4 results center">
+                <div class="card Q-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Question 2</h5>
+                        <span> <i class="card-text fa-regular fa-clock fa-flip-horizontal fa-sm"></i></span>
+                            <span class="card-text">{{ time[1] }} seconds</p></span>
+                        
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="container-fluid check_container">
+                                    {% if quiz_results[1] %}
+                                        <div class="passed-icon"><i class="fa-solid fa-star fa-beat"></i></div>
+                                    {% else %}
+                                        <div class="failed-icon"><i class="fa-regular fa-star"></i></div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="mt-4 results">
-                <div id="question-3">
-                    Question 3: {% if quiz_results[2] %} Passed {% else %} Failed {% endif %}
-                    <br> Time Taken: {{time[2]}} seconds
+     
+        
+            <div class="col-md-4">
+                <div class="mt-4 results center">
+                    <div class="card Q-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Question 3</h5>
+                            <span> <i class="card-text fa-regular fa-clock fa-flip-horizontal fa-sm"></i></span>
+                                <span class="card-text">{{ time[2] }} seconds</p></span>
+                            
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="container-fluid check_container">
+                                        {% if quiz_results[2] %}
+                                            <div class="passed-icon"><i class="fa-solid fa-star fa-beat"></i></div>
+                                        {% else %}
+                                            <div class="failed-icon"><i class="fa-regular fa-star"></i></div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
     </div>
+        
+          
+</div>
+    <div class="row">
+
+        
+    </div>
+    
 </div>
 <div class="row">
     <div class="col-md-12 text-center">

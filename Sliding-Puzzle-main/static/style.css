@@ -263,3 +263,65 @@ h1 {
     border-radius: 5px;
     margin-top: 10px;
 }
+.center{
+	text-align: center;
+	margin-top: 5%;
+}
+
+.check_container{
+	padding-top: 2%;
+	max-width: 100%;
+    padding: 0%;
+}
+
+.passed-icon {
+	padding-top: 2%;
+    color:rgb(242, 220, 23); /* Color for passed questions */
+	font-size: 700%;
+
+	
+}
+.failed-icon {
+	padding-top:12%;
+     color:rgb(164, 164, 164); /* Color for passed questions */
+	font-size: 600%;
+}
+
+
+.stars_icon{
+    color: rgb(127, 103, 29);
+    font-size: 190%;
+    padding-top: 2%;
+
+   
+}
+
+.star_container{
+    max-width: 100%;
+    padding: 0%;
+}
+
+
+.card-text{
+	color: #548f9d;
+}
+
+
+
+.Q-card {
+    border: 1px solid #ccc; /* Add border */
+    border-radius: 5px; /* Add border radius for rounded corners */
+    padding: 10px; /* Add padding inside the card */
+    margin-bottom: 10px; /* Add margin between cards */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow effect */
+    background-color:#f9f9f9; /* Set background color */
+    
+}
+
+#click{
+	padding-right: 2%;
+	padding-top: 5%;
+	font-size: larger;
+	color: #548f9d;
+
+}

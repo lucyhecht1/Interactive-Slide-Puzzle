@@ -25,7 +25,7 @@ goal = [1, 2, 3, 4, 5, 6, 7, 8, 0]
 layout = list(INIT_LAYOUT)
 
 quiz_results = [None, None, None]
-time = [None, None, None]
+time = [0, 0, 0]
 solution = []
 
 
