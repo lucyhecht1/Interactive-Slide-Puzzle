@@ -2,23 +2,26 @@
 
 {% block content %}
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="data:,">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='learn.js') }}"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="data:,">
+ 
 </head>
 
 <div class="row">
     <div class="col-md-4">
         <h2> <strong>Step {{id}} </strong> </h2>
-        <h3>{{description}}</h3>
+        <h3 id="description">{{ description }}</h3>
+
     </div>
 
-    <div class="col-md-4 text-center justify-content-center align-items-center top-padding">
+    <div class="col-md-4 text-center justify-content-center align-items-center">
+        <div class="container top-padding">
         <div id="success" data-step = '{{id}}'></div>
         <div id="source"> </div>
         <div class="row">
@@ -32,7 +35,7 @@
         <button id="backButton" class="styled-button mt-3">Back</button>
         <button id="quizButton" class="styled-button mt-3">Quiz yourself</button>
         <button id="nextButton" class="styled-button mt-3">Next</button>
-        
+    </div>
     </div>
 
     <div class="col-md-4">
@@ -71,13 +74,13 @@
                 </video> 
 
                 <br>
-                I--Lucy--put that video in^^. Below is Judah's code. Didn't want to get rid
-                of it yet, but I like my idea :) We could make all the videos and then upload
+                I--Lucy--put that video in^^. Below is Judah's code (commented out). Didn't want to get rid
+                of it yet, but I like my idea : We could make all the videos and then upload
                 their file names into a dictionary and use curly braces so that the correct video plays on the correct slide
-                _____________________________________________
+                <!-- _____________________________________________
                 <div id="visual">
                     <button id="showSolution" class="styled-button">Show Solution</button>
-                </div>
+                </div> -->
             </div>
             
     </div>
@@ -85,6 +88,31 @@
 </div>
 
 <script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    // Get the description element
+    var descriptionElement = document.getElementById('description');
+
+    // Get the text content of the description
+    var descriptionText = descriptionElement.textContent;
+
+    // Split the description text into an array of characters
+    var characters = descriptionText.split('');
+
+    // Create a new HTML string with each number wrapped in a span element with a class
+    var styledDescription = '';
+    characters.forEach(function(char) {
+        if (!isNaN(char)) { // Check if the character is a number
+            // If it's a number, wrap it in a span element with a class for styling
+            styledDescription += '<span class="number">' + char + '</span>';
+        } else {
+            // If it's not a number, just add it to the string as is
+            styledDescription += char;
+        }
+    });
+
+    // Set the innerHTML of the description element to the styled description
+    descriptionElement.innerHTML = styledDescription;
+});
 
 let lay = '{{ layout | tojson | safe }}';
 let grid_use = JSON.parse(lay);

@@ -252,16 +252,24 @@ h1 {
 	background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 5px;
-    margin-top: 10px;
+    margin-top: 5px;
+	margin-left:0%;
+	margin-right:8%;
+	z-index: 1; /* Set a higher stacking order */
+	
 }
 
 .strategy-container {
     display: none;
+	position: absolute; 
     padding: 20px;
+	margin-top: 5px;
 	background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 5px;
-    margin-top: 10px;
+	margin-right:8%;
+	margin-left:0%;
+	z-index: 2; /* Set a higher stacking order */
 }
 .center{
 	text-align: center;
@@ -342,4 +350,16 @@ h1 {
 	color: #41707c;
 	padding-bottom: 2%;
 	padding-left: 50%;
+}
+
+.number{
+	color: #41707c;
+	font-weight: bold;
+}
+
+.house{
+	padding-right: 2%;
+}
+.no-pad{
+	margin-top: 0%;
 }
