@@ -10,7 +10,7 @@ app = Flask(__name__)
 description = ["move the 1 to the top left corner",
                "move the 3 to the top center position",
                "place the  2 in the center of the entire board",
-               "now you can move  the 2 and 3 around to be in order in the top row",
+               "use the Stack and Slide Strategy! shuffle the 2 and 3 around to be in order in the top row",
                "use the Stack and Slide Strategy! Start by moving the 7 to the middle of the first column",
                "now place the 4 in the center of the entire board without moving the 7",
                "now you can move  the 7 and 4 around to be in order in the first column",

@@ -1,6 +1,7 @@
 .custom-body {
 	font-family: Gill Sans, sans-serif;
-	background-color: #ebcbae; 
+    background-image: url('/static/images/background.jpg');
+	background-size: cover;
 	color: #333333;
 }
 h1 {
@@ -46,8 +47,8 @@ h1 {
 	margin-right: auto;
 	border-radius: 5px;
 	overflow: auto;
-	color: #8a412bbc;
-	background-color:#512112a6;
+	color: #008080;
+	background-color:#008080;
 	padding: 5px;
 }
 
