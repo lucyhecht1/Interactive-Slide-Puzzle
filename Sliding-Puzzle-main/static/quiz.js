@@ -1,5 +1,4 @@
 $(document).ready(function () {
-  
   showNextButton();
   clickNextBut();
 
@@ -10,24 +9,23 @@ $(document).ready(function () {
   document.getElementById("startBtn").addEventListener("click", function () {
     startTimer();
     // Additional puzzle logic here
-
   });
 
   // Example puzzle completion logic (adjust as needed)
 
   function showNextButton() {
     let currentId = window.location.pathname.split("/").pop();
-    if (currentId == 3) {
+    if (currentId == 3 || !checkQuizComplete()) {
       $("#nextButton").hide();
     }
   }
-  
+
   function clickNextBut() {
     // Click event handler for the next button
-    let currentId = window.location.pathname.split('/').pop();
+    let currentId = window.location.pathname.split("/").pop();
     let nextId = parseInt(currentId) + 1;
     nextId = nextId <= 3 ? nextId : 3;
-    $('#nextButton').click(function() {
+    $("#nextButton").click(function () {
       window.location.href = "/quiz/" + nextId;
     });
   }
@@ -38,5 +36,4 @@ $(document).ready(function () {
       $("#resultsButton").show();
     }
   }
-
 });

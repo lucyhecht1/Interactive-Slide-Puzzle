@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="data:,">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='learn.js') }}"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Required meta tags -->
+ 
+</head>
+
+<div class="row">
+    <div class="col-md-4">
+        Practice solving a puzzle
+    </div>
+
+    <div class="col-md-4 text-center justify-content-center align-items-center">
+        <div class="container top-padding">
+        <div id="success" data-step = '{{id}}'></div>
+        <div id="source"> </div>
+        <div class="row">
+            <div class="card-body click-card">
+                <div class="row">
+                    <span id="click">Click the squares to move</span>
+                    <span><i class=" cursor fa-solid fa-arrow-pointer fa-beat fa-xl"></i></span>
+                </div>
+            </div>
+        </div>
+        <button id="shuffle" class="styled-button mt-3">Shuffle</button>
+        <button id="learnButton" class="styled-button mt-3">Learn</button>
+        <button id="quizButton" class="styled-button mt-3">Quiz yourself</button>
+    </div>
+    </div>
+
+</div>
+
+<script>
+
+    $("#shuffle").click( function(){
+        window.location.reload()
+    })
+
+    $("#learnButton").click( function(){
+        window.location.href = "/row"
+    })
+document.addEventListener('DOMContentLoaded', (event) => {
+    // Get the description element
+    var descriptionElement = document.getElementById('description');
+
+    // Get the text content of the description
+    var descriptionText = descriptionElement.textContent;
+
+    // Split the description text into an array of characters
+    var characters = descriptionText.split('');
+
+    // Create a new HTML string with each number wrapped in a span element with a class
+    var styledDescription = '';
+    characters.forEach(function(char) {
+        if (!isNaN(char)) { // Check if the character is a number
+            // If it's a number, wrap it in a span element with a class for styling
+            styledDescription += '<span class="number">' + char + '</span>';
+        } else {
+            // If it's not a number, just add it to the string as is
+            styledDescription += char;
+        }
+    });
+
+    // Set the innerHTML of the description element to the styled description
+    descriptionElement.innerHTML = styledDescription;
+});
+
+let lay = '{{ layout | tojson | safe }}';
+let grid_use = JSON.parse(lay);
+let sourceDiv = document.getElementById('source');
+sourceDiv.appendChild(buildPuzzle(grid_use));
+
+</script>
+{% endblock %}

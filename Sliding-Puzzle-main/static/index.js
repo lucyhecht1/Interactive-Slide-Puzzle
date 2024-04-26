@@ -23,11 +23,7 @@ function solveStep(solution) {
   solution.forEach(function (step) {
     let cell = $(".cell.solve:contains(" + step + ")");
     cell.click();
-    //sleep(40000);
   });
-}
-function sleep(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 function buildPuzzList(layout) {
@@ -222,6 +218,7 @@ function checkQuizComplete() {
         $(".cell:contains('1')").css("background-color", "yellow");
         $(".cell:contains('2')").css("background-color", "yellow");
         $(".cell:contains('3')").css("background-color", "yellow");
+        $("#nextButton").show();
         return true;
       } else {
         return false;
@@ -243,6 +240,7 @@ function checkQuizComplete() {
         $(".cell:contains('1')").css("background-color", "yellow");
         $(".cell:contains('4')").css("background-color", "yellow");
         $(".cell:contains('7')").css("background-color", "yellow");
+        $("#nextButton").show();
         return true;
       } else {
         return false;
@@ -358,6 +356,7 @@ function checkStepComplete() {
         console.log("step 1 complete");
         $("#success").text("Success");
         // $(".cell:contains('1')").css("background-color", "yellow");
+        $("#nextButton").show();
         return true;
       } else {
         return false;
@@ -367,6 +366,7 @@ function checkStepComplete() {
       if (layout[0][0] == 1 && layout[0][1] == 3) {
         console.log("step 2 complete");
         $("#success").text("Success");
+        $("#nextButton").show();
         return true;
       } else {
         return false;
@@ -376,6 +376,7 @@ function checkStepComplete() {
       if (layout[0][0] == 1 && layout[0][1] == 3 && layout[1][1] == 2) {
         console.log("step 3 complete");
         $("#success").text("Success");
+        $("#nextButton").show();
         return true;
       } else {
         return false;
@@ -389,6 +390,7 @@ function checkStepComplete() {
         $(".cell:contains('1')").css("background-color", "yellow");
         $(".cell:contains('2')").css("background-color", "yellow");
         $(".cell:contains('3')").css("background-color", "yellow");
+        $("#nextButton").show();
         return true;
       } else {
         return false;
@@ -405,6 +407,7 @@ function checkStepComplete() {
       ) {
         console.log("step 5 complete");
         $("#success").text("Success");
+        $("#nextButton").show();
         return true;
       } else {
         return false;
@@ -421,6 +424,7 @@ function checkStepComplete() {
       ) {
         console.log("step 6 complete");
         $("#success").text("Success");
+        $("#nextButton").show();
         return true;
       } else {
         return false;
@@ -439,6 +443,7 @@ function checkStepComplete() {
         $("#success").text("Success");
         $(".cell:contains('4')").css("background-color", "yellow");
         $(".cell:contains('7')").css("background-color", "yellow");
+        $("#nextButton").show();
         return true;
       } else {
         return false;
@@ -460,6 +465,7 @@ function checkStepComplete() {
         console.log("step 8 complete");
         $("#success").text("Success");
         $(".cell").css("background-color", "yellow");
+        $("#nextButton").show();
         return true;
       } else {
         return false;

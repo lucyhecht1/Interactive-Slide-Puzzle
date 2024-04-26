@@ -12,12 +12,17 @@ description = ["move the 1 to the top left corner",
                "place the  2 in the center of the entire board",
                "now you can move  the 2 and 3 around to be in order in the top row",
                "use the Stack and Slide Strategy! Start by moving the 7 to the middle of the first column",
-               "now place the 4 in the center of the entire board",
+               "now place the 4 in the center of the entire board without moving the 7",
                "now you can move  the 7 and 4 around to be in order in the first column",
                "shuffle around the last 3 boxes and you are done!"]
 
 question = ["Solve the top row in 60 seconds", "Solve the left most column",
             "Solve the remainder of the puzzle"]
+
+step_layout = [[7, 6, 8, 4, 1, 3, 2, 5, 0], [1, 7, 8, 4, 6, 3, 2, 5, 0], [1, 3, 7, 4, 6, 8, 2, 5, 0],
+               [1, 3, 7, 6, 2, 8, 4, 5, 0], [1, 2, 3, 6, 5,
+                                             7, 4, 8, 0], [1, 2, 3, 7, 8, 5, 6, 4, 0],
+               [1, 2, 3, 7, 4, 8, 6, 5, 0], [1, 2, 3, 4, 0, 8, 7, 6, 5]]
 
 INIT_LAYOUT = [6, 4, 7, 8, 5, 0, 3, 2, 1]
 goal = [1, 2, 3, 4, 5, 6, 7, 8, 0]
@@ -29,8 +34,8 @@ time = [0, 0, 0]
 solution = []
 
 
-def to2D():
-    return [layout[:3], layout[3:6], layout[6:]]
+def to2D(layout_list):
+    return [layout_list[:3], layout_list[3:6], layout_list[6:]]
 
 
 # function which returns a list of the index's surrounding the empty tile
@@ -89,6 +94,14 @@ def col():
     return render_template('learnCol.html')
 
 
+@app.route('/practice')
+def practice():
+    global layout
+    layout = list(step_layout[0])
+    shuffle(6)
+    return render_template('practice.html', layout=to2D(layout))
+
+
 @app.route('/strategy/<int:origin_page>')
 def strategy(origin_page):
     return render_template('strategy.html', origin_page=origin_page)
@@ -98,24 +111,18 @@ def strategy(origin_page):
 def quiz(question_num):
     global layout
     if question_num == 1:
-        layout = INIT_LAYOUT
+        layout = list(INIT_LAYOUT)
         shuffle(15)
 
-    return render_template('quiz.html', question=question[question_num - 1], question_num=question_num, layout=to2D())
+    return render_template('quiz.html', question=question[question_num - 1], question_num=question_num, layout=to2D(layout))
 
 
 @app.route('/learn/<int:id>')
 def learn(id):
     global layout
     global solution
-    '''
-     if id == 1:
-        layout = list(INIT_LAYOUT)
-        shuffle(3)
-    '''
-    layout = list(goal)
-    shuffle(7)
-    return render_template('learn.html', id=id, description=description[id-1], layout=to2D(), solution=solution, lay_list=layout)
+    layout = list(step_layout[id - 1])
+    return render_template('learn.html', id=id, description=description[id-1], layout=to2D(layout), solution=solution, lay_list=layout)
 
 
 @app.route('/send_layout', methods=['POST'])
