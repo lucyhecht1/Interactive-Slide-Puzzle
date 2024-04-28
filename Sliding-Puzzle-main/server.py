@@ -81,7 +81,12 @@ def shuffle(moves):
 
 @app.route('/')
 def hello_world():
-    return render_template('home.html')
+    global solution
+    global layout
+    layout = list(goal)
+    shuffle(15)
+    lay_list = list(layout)
+    return render_template('home.html', solution=solution, lay_list=lay_list)
 
 
 @app.route('/row')

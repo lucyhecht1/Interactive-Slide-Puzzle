@@ -12,14 +12,23 @@
             <button id="toLearn" class="styled-button">Learn Now</button>
         </div>
     </div>
-    <div class="col-md-4">
-        Put puzzle here @Judah
+    <div class="col-md-4" id="puzz-home">
     </div>
 
 <script>
 $("#toLearn").click(function(){
     window.location.href = '/row';
 });
+
+let visualDiv = document.getElementById('puzz-home');
+let lay_list = '{{ lay_list | tojson | safe }}';
+let lay_use = JSON.parse(lay_list);
+visualDiv.appendChild(buildPuzzList(lay_use));
+
+let sol = '{{ solution | tojson | safe }}';
+let solution = JSON.parse(sol);
+let solve = solveStep(solution);
+window.onload = solve;
 </script>
 
 {% endblock %}

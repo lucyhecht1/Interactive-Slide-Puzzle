@@ -21,7 +21,7 @@ isDebug = false;
 
 function solveStep(solution) {
   solution.forEach(function (step) {
-    let cell = $(".cell.solve:contains(" + step + ")");
+    let cell = $(".cell:contains(" + step + ")");
     cell.click();
   });
 }
@@ -271,9 +271,9 @@ function checkQuizComplete() {
   }
 }
 function startTimer() {
-      $("#clock").hide();
-      $("#clock").addClass("slow-spin");
-      $("#clock").show();
+  $("#clock").hide();
+  $("#clock").addClass("slow-spin");
+  $("#clock").show();
   totalSeconds = 0;
   timerOn = true;
   if (!timerInterval) {
