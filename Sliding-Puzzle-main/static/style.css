@@ -1,7 +1,7 @@
 .custom-body {
 	font-family: Gill Sans, sans-serif;
-    background-image: url('/static/images/background.jpg');
-	background-size: cover;
+    background-image: url('/static/images/background2.jpg');
+	background-size:cover;
 	color: #333333;
 }
 h1 {
@@ -216,7 +216,7 @@ h1 {
 	margin-top: 5px;
 	padding: 5px 13px;
 	border: none;
-	background-color: #8f8787; 
+	background-color: #9173ff; 
 	color: #ffffff;
 	font-size: 16px;
 	cursor: pointer;
@@ -375,4 +375,39 @@ padding-top: 20%;
 
 .step-box{
 	padding-top: 20%;
+}
+
+.correct_cell_color{
+	background-color: #9173ff;
+}
+#startButton {
+    border: none;
+    background-color:  #548f9d;/* Adjust the alpha value (0.8) to control transparency */
+    color: hsl(0, 100%, 98%);
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    padding:5% 6%; /* Consolidated padding */
+}
+
+#startButton:hover {
+    background-color: rgba(175, 222, 234, 0.8); /* Adjust the alpha value (0.8) for hover state */
+}
+
+.example{
+	border-style: inset;
+	border-radius: 5%;
+
+}
+
+#phase{
+font-size: larger;
+padding-top: 3%;
+font-weight: bold;
+
+}
+
+#descr{
+	padding-bottom: 2%;
+
 }
