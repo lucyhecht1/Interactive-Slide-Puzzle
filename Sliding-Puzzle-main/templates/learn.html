@@ -14,10 +14,12 @@
 </head>
 
 <div class="row">
-    <div class="col-md-4">
-        <div class="container step-box">
-        <h2> <strong>Step {{id}} </strong> </h2>
-        <h3 id="description">{{ description }}</h3>
+    <div class="col-md-4" >
+        <div class="card-body intruction-card  color">
+           
+            <h2> <strong> <span class="stepcol">Step {{id}} </span></strong> </h2>
+            <h3 class="stepcol2" id="description"> <span class="stepcol">{{ description }}</span></h3>
+         
     </div>
     </div>
 
@@ -28,8 +30,8 @@
         <div class="row">
             <div class="card-body click-card">
                 <div class="row">
-                    <span id="click">Click the squares to move</span>
-                    <span><i class=" cursor fa-solid fa-arrow-pointer fa-beat fa-xl"></i></span>
+                    <span class="stepcol" id="click ">Click the squares to move</span>
+                    <span><i class=" stepcol cursor fa-solid fa-arrow-pointer fa-beat fa-xl"></i></span>
                 </div>
             </div>
         </div>
@@ -87,6 +89,7 @@
     </div>
 
 </div>
+
 
 <script>
 document.addEventListener('DOMContentLoaded', (event) => {

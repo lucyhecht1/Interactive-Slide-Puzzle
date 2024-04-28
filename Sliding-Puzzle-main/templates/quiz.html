@@ -11,8 +11,10 @@
 <div class="row">
     
     <div class="col-md-4 mt-4">
-        <h2> <strong>Question {{question_num}} </strong></h2>
-        <h3>{{question}}</h3>
+        <div class="card-body intruction-card">
+        <h2 class="stepcol"> <strong>Question {{question_num}} </strong></h2>
+        <h3><span class="stepcol2">{{question}}</span></h3>
+    </div>
     </div>
     
     <div class="col-md-4 mt-4 text-center justify-content-center align-items-center">
@@ -28,8 +30,8 @@
         
       
             <div class="card-body timer-card">
-                <span><i id="clock" class="fa-regular fa-clock "></i></span>
-                <span id="timer">00:00</span>
+                <span><i id="clock" class=" stepcol fa-regular fa-clock "></i></span>
+                <span class="stepcol" id="timer">00:00</span>
             </div>
        
         
@@ -37,8 +39,8 @@
         
         <div class="card-body click-card">
             <div class="row">
-                <span id="click">Click the squares to move</span>
-                <span><i class=" cursor fa-solid fa-arrow-pointer fa-beat fa-xl"></i></span>
+                <span  class="stepcol" id="click">Click the squares to move</span>
+                <span><i class=" stepcol cursor fa-solid fa-arrow-pointer fa-beat fa-xl"></i></span>
             </div>
         </div>
     </div>
