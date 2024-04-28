@@ -41,7 +41,8 @@ function showNextButton() {
   if (!checkStepComplete()) {
     return;
   }
-  if (currentId != 8) {
+  else {
+    console.log("show")
     $("#nextButton").show();
   }
 }
@@ -55,7 +56,7 @@ function showQuizButton() {
 
 function show_strategy_Button() {
   var currentId = window.location.pathname.split("/").pop();
-  if (currentId == 5 || currentId == 6 || currentId == 7 || currentId == 2) {
+  if (currentId == 5 || currentId == 6 || currentId == 7 || currentId == 2 || currentId == 3 || currentId == 4) {
     $("#strategyButton").show();
   }
 }

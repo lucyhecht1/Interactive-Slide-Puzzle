@@ -1,6 +1,6 @@
 .custom-body {
 	font-family: Gill Sans, sans-serif;
-    background-image: url('/static/images/background2.jpg');
+	background-color: rgba(255, 187, 0, 0.307);
 	background-size:cover;
 	color: #333333;
 }
@@ -435,4 +435,28 @@ font-weight: bold;
 .slow-spin {
 	-webkit-animation: fa-spin 6s infinite linear;
 	animation: fa-spin 6s infinite linear;
+  }
+
+  /* homepage */
+  .title-container {
+	margin-left: 50px;
+	margin-top: 200px; 
+	text-align: left;
+
+  }
+
+  .title {
+	font-size: 48px;
+	color: #000;
+	margin: 0;
+	text-align: left; 
+
+  }
+
+  .subtitle {
+	font-size: 24px;
+	color: #808080;
+	margin: 0;
+	margin-top: 20px;
+	text-align: left;
   }

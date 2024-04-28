@@ -2,28 +2,24 @@
 
 {% block content %}
 
-<head>
-    <!-- <script type="text/javascript" src="{{ url_for('static', filename = 'welcome.js') }}"></script> -->
-    <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}"> -->
-    <!-- <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'> -->
-</head>
-<body>
-    <div id="homeDive">
-        <div class="row title-layout">
-            Learn how to Solve a Slide Puzzle!
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="title-container">
+            <h1 class="title">Learn how to Slide Puzzle</h1>
+            <p class="subtitle">In under 10 minutes, you can master the whole strategy</p>
+            <br>
+            <button id="toLearn" class="styled-button">Learn Now</button>
         </div>
-
-        <br><br><br>Put a puzzle here. <br><br><br>
-
-
-        <button id="toLearn" class="styled-button">Learn Now</button>
     </div>
-    
-</body>
+    <div class="col-md-4">
+        Put puzzle here @Judah
+    </div>
+
 <script>
-    $("#toLearn").click( function(){
-        window.location.href = '/row'
-    });
+$("#toLearn").click(function(){
+    window.location.href = '/row';
+});
 </script>
 
 {% endblock %}
