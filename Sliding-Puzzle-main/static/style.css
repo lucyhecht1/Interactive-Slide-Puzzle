@@ -411,3 +411,28 @@ font-weight: bold;
 	padding-bottom: 2%;
 
 }
+#timer{
+	padding-top: 3%;
+}
+
+#bold{
+font-weight: bold;
+}
+.timer-card{
+	
+	border: 1px solid #ccc; /* Add border */
+    border-radius: 10px; /* Add border radius for rounded corners */
+    padding:0%;
+    margin-top:4%; /* Add margin between cards */
+	margin-left: 30%;
+	margin-right: 30%;
+	font-size: 200%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow effect */
+    background-color: rgba(169, 169, 169, 0.3); /* Set background color with transparency */
+
+}
+
+.slow-spin {
+	-webkit-animation: fa-spin 6s infinite linear;
+	animation: fa-spin 6s infinite linear;
+  }

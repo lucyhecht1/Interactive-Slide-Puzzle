@@ -271,6 +271,9 @@ function checkQuizComplete() {
   }
 }
 function startTimer() {
+      $("#clock").hide();
+      $("#clock").addClass("slow-spin");
+      $("#clock").show();
   totalSeconds = 0;
   timerOn = true;
   if (!timerInterval) {
