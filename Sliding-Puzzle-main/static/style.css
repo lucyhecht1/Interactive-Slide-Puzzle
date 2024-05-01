@@ -527,9 +527,6 @@ font-weight: bold;
 }
 
 
-
-
-
 .click-card2 {
     
     border-radius: 10px; /* Add border radius for rounded corners */
@@ -540,7 +537,7 @@ font-weight: bold;
     box-shadow: #2b136f;
 	border-style:inset;
 	border-color: #2b136f;
-    background-color: #9ae7fa;;
+    background-color: #9ae7fa;
 	z-index: 9999;
 }
 .green{
@@ -548,3 +545,20 @@ font-weight: bold;
 	font-weight: bolder;
 	 color: #2b136f;
 }
+
+.success-class {
+	font-weight: bolder;
+	color: #2b136f;
+	background-color: #64e0ff;
+	border-color: #2b136f;
+	border-width: 3px;
+	width: 100px;
+	height: 35px;
+	border-radius: 4px;
+	text-align: center;
+	line-height: 35px;
+	vertical-align: middle;
+	margin-left: 185px;
+	margin-bottom: 5px;
+  }
+  

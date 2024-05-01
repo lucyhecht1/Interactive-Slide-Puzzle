@@ -214,7 +214,7 @@ function checkQuizComplete() {
         stopTimer();
         const timeRemaining = totalSeconds;
         sendSuccessAttempt(timeRemaining, 1);
-        $("#success").text("Success");
+        $("#success").text("Success!").addClass("success-class");
         $(".cell:contains('1')").css("background-color", "#64e0ff");
         $(".cell:contains('2')").css("background-color", "#64e0ff");
         $(".cell:contains('3')").css("background-color", "#64e0ff");
@@ -236,7 +236,7 @@ function checkQuizComplete() {
         stopTimer();
         const timeRemaining = totalSeconds;
         sendSuccessAttempt(timeRemaining, 2);
-        $("#success").text("Success");
+        $("#success").text("Success!").addClass("success-class");
         $(".cell:contains('1')").css("background-color", "#64e0ff");
         $(".cell:contains('4')").css("background-color", "#64e0ff");
         $(".cell:contains('7')").css("background-color", "#64e0ff");
@@ -261,7 +261,7 @@ function checkQuizComplete() {
         stopTimer();
         const timeRemaining = totalSeconds;
         sendSuccessAttempt(timeRemaining, 3);
-        $("#success").text("Success");
+        $("#success").text("Success!").addClass("success-class");
         $(".cell").css("background-color", "#64e0ff");
         return true;
       } else {
