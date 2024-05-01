@@ -2,6 +2,9 @@ $(document).ready(function () {
   $("#strategyButton").hide();
   show_strategy_Button();
 
+  $("#whyButton").hide();
+  showWhyButton();
+
   $("#backButton").hide();
   showBackButton();
   clickBack();
@@ -14,8 +17,10 @@ $(document).ready(function () {
   showQuizButton();
   clickQuiz();
 
-  $("#whyButton").hide();
-  showWhyButton();
+  $("#whyButton").on("click", function () {
+    $("#whyTho").slideToggle();
+  
+  });
 
   $("#strategyButton").on("click", function () {
     $("#strategy").slideToggle();

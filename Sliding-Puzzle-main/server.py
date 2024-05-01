@@ -7,6 +7,7 @@ from flask import Response, request, jsonify
 app = Flask(__name__)
 
 # list of descriptions for each step
+
 description = ["Move the 1 to the top left corner",
                "Move the 3 to the top center position",
                "Place the  2 in the center of the entire board",
@@ -16,6 +17,13 @@ description = ["Move the 1 to the top left corner",
                "Now you can move  the 7 and 4 around to be in order in the first column",
                "Shuffle around the last 3 boxes and you are done!"]
 
+why_it_works = ["We are trying to set up our board for long terms success. To complete the top row, we need the 2 and the 3 to be positioned on top of each other so that they eventually can slide into their correct locations. We specifically want the 3 to be on top of the 2 so that we can slide the 3 into the right-most corner, and then the 2 gets pushed up into the middle. Hence, we call this strategy the Stack and Slide Strategy. Can you picture it?",
+                "We are trying to set up our board for long terms success. To complete the top row, we need the 2 and the 3 to be positioned on top of each other so that they eventually can slide into their correct locations. We specifically want the 3 to be on top of the 2 so that we can slide the 3 into the right-most corner, and then the 2 gets pushed up into the middle. Hence, we call this strategy the Stack and Slide! Can you picture it?",
+                "Our tiles are all setup! All you have to do now is create an empty space so that the 3 can slide over and the 2 can slide up. Then you've completed your top row!",
+                "We are similarly getting our board ready for a simple shuffle. This time, instead of stacking our two numbers, we want to position them side by side (since our goal is the column not row). If we put the 7 in the leftmost middle spot and then 4 right next to it, we will then be able to slide the 7 down and the 4 over. Hence, we call this strategy the Side and Slide! Can you picture it?",
+                "We are similarly getting our board ready for a simple shuffle. This time, instead of stacking our two numbers, we want to position them side by side (since our goal is the column not row). If we put the 7 in the leftmost middle spot and then 4 right next to it, we will then be able to slide the 7 down and the 4 over. Hence, we call this strategy the Side and Slide! Can you picture it?",
+                "Our tiles are all setup! All you have to do now is create an empty space so that the 7 can slide down and the 4 can slide over. Then you've completed your left column!"]
+
 question = ["Solve the top row in 60 seconds", "Solve the left most column",
             "Solve the remainder of the puzzle"]
 
@@ -23,6 +31,8 @@ step_layout = [[7, 6, 8, 4, 1, 3, 2, 5, 0], [1, 7, 8, 4, 6, 3, 2, 5, 0], [1, 3, 
                [1, 3, 7, 6, 2, 8, 4, 5, 0], [1, 2, 3, 6, 5,
                                              7, 4, 8, 0], [1, 2, 3, 7, 8, 5, 6, 4, 0],
                [1, 2, 3, 7, 4, 8, 6, 5, 0], [1, 2, 3, 4, 0, 8, 7, 6, 5]]
+
+
 
 INIT_LAYOUT = [6, 4, 7, 8, 5, 0, 3, 2, 1]
 goal = [1, 2, 3, 4, 5, 6, 7, 8, 0]
@@ -127,7 +137,8 @@ def learn(id):
     global layout
     global solution
     layout = list(step_layout[id - 1])
-    return render_template('learn.html', id=id, description=description[id-1], layout=to2D(layout), solution=solution, lay_list=layout)
+    why_works = why_it_works[id - 2]
+    return render_template('learn.html', id=id, description=description[id-1], why_it_works=why_works, layout=to2D(layout), solution=solution, lay_list=layout)
 
 
 @app.route('/send_layout', methods=['POST'])
