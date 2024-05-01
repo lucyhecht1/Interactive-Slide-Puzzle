@@ -14,6 +14,9 @@ $(document).ready(function () {
   showQuizButton();
   clickQuiz();
 
+  $("#whyButton").hide();
+  showWhyButton();
+
   $("#strategyButton").on("click", function () {
     $("#strategy").slideToggle();
   });
@@ -25,6 +28,13 @@ $(document).ready(function () {
 // Hide the view item button initially
 
 // Show the next button when the page is loaded
+
+function showWhyButton(){
+  var currentId = window.location.pathname.split("/").pop();
+  if (currentId == 2 || currentId == 3 || currentId == 4 || currentId == 5 || currentId == 6 ||currentId == 7){
+    $("#whyButton").show();
+  }
+}
 
 function showBackButton() {
   var currentId = window.location.pathname.split("/").pop();
