@@ -357,9 +357,11 @@ function checkStepComplete() {
     case 1:
       if (layout[0][0] == 1) {
         console.log("step 1 complete");
-        $("#success").text("Success");
+        $("#success").text("Success!");
+        $("#success-card").show()
         // $(".cell:contains('1')").css("background-color", "#64e0ff");
         $("#nextButton").show();
+        
         return true;
       } else {
         return false;
@@ -368,8 +370,9 @@ function checkStepComplete() {
     case 2:
       if (layout[0][0] == 1 && layout[0][1] == 3) {
         console.log("step 2 complete");
-        $("#success").text("Success");
+        $("#success").text("Success!");
         $("#nextButton").show();
+        $("#success-card").show()
         return true;
       } else {
         return false;
@@ -378,8 +381,9 @@ function checkStepComplete() {
     case 3:
       if (layout[0][0] == 1 && layout[0][1] == 3 && layout[1][1] == 2) {
         console.log("step 3 complete");
-        $("#success").text("Success");
+        $("#success").text("Success!");
         $("#nextButton").show();
+        $("#success-card").show()
         return true;
       } else {
         return false;
@@ -389,11 +393,12 @@ function checkStepComplete() {
     case 4:
       if (layout[0][0] == 1 && layout[0][1] == 2 && layout[0][2] == 3) {
         console.log("step 4 complete");
-        $("#success").text("Success");
+        $("#success").text("Success!");
         $(".cell:contains('1')").css("background-color", "#64e0ff");
         $(".cell:contains('2')").css("background-color", "#64e0ff");
         $(".cell:contains('3')").css("background-color", "#64e0ff");
         $("#nextButton").show();
+        $("#success-card").show()
         return true;
       } else {
         return false;
@@ -411,6 +416,7 @@ function checkStepComplete() {
         console.log("step 5 complete");
         $("#success").text("Success");
         $("#nextButton").show();
+        $("#success-card").show()
         return true;
       } else {
         return false;
@@ -428,6 +434,7 @@ function checkStepComplete() {
         console.log("step 6 complete");
         $("#success").text("Success");
         $("#nextButton").show();
+        $("#success-card").show()
         return true;
       } else {
         return false;
@@ -447,6 +454,7 @@ function checkStepComplete() {
         $(".cell:contains('4')").css("background-color", "#64e0ff");
         $(".cell:contains('7')").css("background-color", "#64e0ff");
         $("#nextButton").show();
+        $("#success-card").show()
         return true;
       } else {
         return false;
@@ -466,9 +474,10 @@ function checkStepComplete() {
         layout[2][1] == 8
       ) {
         console.log("step 8 complete");
-        $("#success").text("Success");
+        $("#success").text("Success!");
         $(".cell").css("background-color", "#64e0ff");
         $("#nextButton").show();
+        $("#success-card").show()
         return true;
       } else {
         return false;

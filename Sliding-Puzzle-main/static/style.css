@@ -1,3 +1,4 @@
+
 .custom-body2 {
 	font-family: sans-serif;
 	background-color:none;
@@ -518,4 +519,32 @@ font-weight: bold;
 	padding-bottom: 4%;
 
 
+}
+
+
+#success-card{
+	display: none;
+}
+
+
+
+
+
+.click-card2 {
+    
+    border-radius: 10px; /* Add border radius for rounded corners */
+    padding: 2%; /* Add padding inside the card */
+    margin-top:4%; /* Add margin between cards */
+	margin-left: 30%;
+	margin-right: 30%;
+    box-shadow: #2b136f;
+	border-style:inset;
+	border-color: #2b136f;
+    background-color: #9ae7fa;;
+	z-index: 9999;
+}
+.green{
+	
+	font-weight: bolder;
+	 color: #2b136f;
 }

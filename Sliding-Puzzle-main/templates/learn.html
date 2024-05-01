@@ -25,19 +25,27 @@
 
     <div class="col-md-4 text-center justify-content-center align-items-center">
         <div class="container top-padding">
-        <div id="success" data-step = '{{id}}'></div>
+
         <div id="source"> </div>
         <div class="row">
-            <div class="card-body click-card">
+            <div class="card-body click-card2 "  id="success-card">
                 <div class="row">
-                    <span class="stepcol" id="click ">Click the squares to move</span>
-                    <span><i class=" stepcol cursor fa-solid fa-arrow-pointer fa-beat fa-xl"></i></span>
+                    <span class="stepcol green" id="success" data-step = '{{id}}'></span>
+                </div>
+            
+        </div>
+            <div class="row">
+                <div class="card-body click-card">
+                    <div class="row">
+                        <span class="stepcol" id="click ">Click the squares to move</span>
+                        <span><i class=" stepcol cursor fa-solid fa-arrow-pointer fa-beat fa-xl"></i></span>
+                    </div>
                 </div>
             </div>
         </div>
         <button id="backButton" class="styled-button mt-3">Back</button>
         <button id="quizButton" class="styled-button mt-3">Quiz yourself</button>
-        <button id="nextButton" class="styled-button mt-3">Next</button>
+        <button id="nextButton" class=" pulse-button styled-button mt-3">Next</button>
     </div>
     </div>
 
