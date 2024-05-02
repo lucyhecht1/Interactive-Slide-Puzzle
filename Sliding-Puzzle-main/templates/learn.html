@@ -94,12 +94,9 @@
                 desired result. This video might not be your exact board, but it could inspire movement!</p>
                 
                 <video width="320" height="240" controls>
-                    <source src="{{ url_for('static', filename='images/good1.mp4') }}" type="video/mp4">
+                    <source src="{{ url_for('static', filename=video) }}" type="video/mp4">
+                    type="video/mp4">
                 </video> 
-                <!-- _____________________________________________
-                <div id="visual">
-                    <button id="showSolution" class="styled-button">Show Solution</button>
-                </div> -->
             </div>
         </div>
     </div>
@@ -151,4 +148,5 @@ $("#showSolution").click(function(){
 })
 
 </script>
+
 {% endblock %}
