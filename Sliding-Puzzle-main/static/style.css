@@ -1,14 +1,15 @@
 
 .custom-body2 {
-	font-family: sans-serif;
+	font-family: Open Sans;
 	background-color:none;
 	background-size:cover;
 	color: #09021a53;
 }
+
 .custom-body {
 	font-family: sans-serif;
-	background-image:URL('images/jr-korpa-9XngoIpxcEo-unsplash copy.jpg');
-	background-size:cover;
+	background: linear-gradient(45deg, #000, #6303B1, #ff0099);
+	background-attachment: fixed;
 	color: #333333;
 }
 
@@ -308,9 +309,8 @@ h1 {
 
 
 .stars_icon{
-    color: rgb(127, 103, 29);
-    font-size: 190%;
-    padding-top: 2%;
+    color: #9ae7fa;
+  
 
    
 }
@@ -320,9 +320,13 @@ h1 {
     padding: 0%;
 }
 
+.card-title{
+	color: #2b136f;
+	font-weight: bold;
+}
 
 .card-text{
-	color: #548f9d;
+	color: #2b136f;
 }
 
 
@@ -346,7 +350,7 @@ h1 {
 }
 
 .click-card {
-    border: 1px solid #ccc; /* Add border */
+   
     border-radius: 10px; /* Add border radius for rounded corners */
     padding: 2%; /* Add padding inside the card */
     margin-top:4%; /* Add margin between cards */
@@ -354,7 +358,8 @@ h1 {
 	margin-right: 12%;
 	
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow effect */
-    background-color: rgba(169, 169, 169, 0.3); /* Set background color with transparency */
+	background-color:  #fbfbfb;
+
 }
 
 .cursor{
@@ -365,7 +370,9 @@ h1 {
 }
 
 .number{
-	color: #9ae7fa;
+	color: #9173ff;
+	
+	
 	/* color: #64e0ff; */
 	font-weight: bold;
 }
@@ -469,7 +476,7 @@ font-weight: bold;
 
   .subtitle {
 	font-size: 24px;
-	color: #debcbc;
+	color: #9ae7fa;
 	margin: 0;
 	margin-top: 20px;
 	text-align: left;
@@ -491,10 +498,10 @@ font-weight: bold;
 }
 
 .stepcol{
-	color: #ffffff;
+	color: #2b136f
 }
 .stepcol2{
-	color: #f0d9d9;
+	color: #2b136f;
 }
 
 
@@ -503,14 +510,15 @@ font-weight: bold;
 }
 
 .intruction-card{
-	border: 1px solid #ccc; /* Add border */
+	
     border-radius: 10px; /* Add border radius for rounded corners */
-    margin-top:8%; /* Add margin between cards */
+    /* margin-top:8%; Add margin between cards */
 	margin-left: 12%;
 	margin-right: 12%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow effect */
-    background-color: rgba(169, 169, 169, 0.3); /* Set background color with transparency */
+    box-shadow: 0 4px 8px rgba(1, 0, 0, 0.1); /* Add shadow effect */
+    
 	padding: 8%;
+	background-color:  #fbfbfb;
 
 }
 
@@ -536,7 +544,7 @@ font-weight: bold;
 	margin-right: 30%;
     box-shadow: #2b136f;
 	border-style:inset;
-	border-color: #2b136f;
+	
     background-color: #9ae7fa;
 	z-index: 9999;
 }
@@ -577,15 +585,39 @@ font-weight: bold;
 	margin-bottom: 5px;
   }
   
-  #whyButton{
-	background-color: white;
-	color: #9173ff;
-	font-weight: bold;
-	padding: auto;
-	font-size: 20px;
+  .whyButton{
+	margin-top: 5px;
+	padding: 5px 13px;
+	border: none;
+	background-color: #9173ff; 
+	color: #ffffff;
+	font-size: 16px;
+	cursor: pointer;
+	border-radius: 5px;
+	transition: background-color 0.3s ease;
 	margin-left:10%;
   }
+
+
+  /* learnRow */
+
+.styled-button:hover {
+	background-color: #9ae7fa;
+}
 
   #whyTho{
 	margin-left:12%;
   }
+
+.pad-container{
+	margin-top: 20%;
+}
+
+.but-pad{
+	margin-top: 38%;
+}
+
+.white{
+	color:white;
+}
+

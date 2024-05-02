@@ -13,95 +13,76 @@
  
 </head>
 
+
+
 <div class="row">
-    <div class="col-md-4" >
-        <div>
-            <div class="row">
-            <div class="card-body intruction-card  color">
-                <h2> <strong> <span class="stepcol">Step {{id}} </span></strong> </h2>
-                <h3 class="stepcol2" id="description"> <span class="stepcol">{{ description }}</span></h3>
-            </div>
-        </div>
-        `  
-            <button id="whyButton" class="pulse-button styled-button mt-3">Why?</button>
-                <div id="whyTho" class="strategy-container">
-                <p>{{ why_it_works }}</p>
+            <div class="col-md-4" >
+                <div>
+                    <div class="row">
+                    <div class="card-body intruction-card  color">
+                        <h2> <strong> <span class="stepcol">Step {{id}} </span></strong> </h2>
+                        <h3 class="stepcol2" id="description"> <span class="stepcol">{{ description }}</span></h3>
+                    </div>
                 </div>
-            
-         </div>
+                `  
+                    <button id="whyButton" class="whyButton styled-button mt-3">Why? &or; </button>
+                        <div id="whyTho" class="strategy-container">
+                        <p>{{ why_it_works }}</p>
+                        </div>
+                    
+                </div>
+            </div>
+
+             <div class="col-md-4 text-center justify-content-center align-items-center">
+                <div class="container top-padding">
+
+                <div id="source" class=" pad-container"> </div>
+                <div class="row">
+                    <div class="card-body click-card2 "  id="success-card">
+                        <div class="row">
+                            <span class="stepcol green" id="success" data-step = '{{id}}'></span>
+                        </div>
+                    
+                </div>
+                    <div class="row">
+                        <div class="card-body click-card">
+                            <div class="row">
+                                <span class="stepcol" id="click ">Click the squares to move</span>
+                                <span><i class=" stepcol cursor fa-solid fa-arrow-pointer fa-beat fa-xl"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button id="backButton" class="styled-button mt-3">Back</button>
+                <button id="quizButton" class="styled-button mt-3">Quiz yourself</button>
+                <button id="nextButton" class="pulse-button styled-button mt-3">Next</button>
+          </div>
     </div>
 
-    <div class="col-md-4 text-center justify-content-center align-items-center">
-        <div class="container top-padding">
-
-        <div id="source"> </div>
-        <div class="row">
-            <div class="card-body click-card2 "  id="success-card">
-                <div class="row">
-                    <span class="stepcol green" id="success" data-step = '{{id}}'></span>
-                </div>
-            
-        </div>
-            <div class="row">
-                <div class="card-body click-card">
-                    <div class="row">
-                        <span class="stepcol" id="click ">Click the squares to move</span>
-                        <span><i class=" stepcol cursor fa-solid fa-arrow-pointer fa-beat fa-xl"></i></span>
+    <div class="col-md-4 ">
+        <div class="container">
+                <button id="instructionsButton" class="styled-button but-pad">
+                    <span>Show me How </span>
+                    <span id="bold">&or;</span> </button>
+                    <div id="instructions" class="instructions-container">
+                        <p> Note:   There are <strong>many</strong> different ways you can move the tiles to achieve your
+                        desired result. This video might not be your exact board, but it could inspire movement!</p>
+                        
+                        <video width="320" height="240" controls>
+                            <source src="{{ url_for('static', filename=video) }}" type="video/mp4">
+                            type="video/mp4">
+                        </video> 
                     </div>
                 </div>
             </div>
-        </div>
-        <button id="backButton" class="styled-button mt-3">Back</button>
-        <button id="quizButton" class="styled-button mt-3">Quiz yourself</button>
-        <button id="nextButton" class="pulse-button styled-button mt-3">Next</button>
-    </div>
-    </div>
-
-    <div class="col-md-4">
-        <div class="container top-padding-less">
-        <!--Roll down - show solution -->
-        <button id="strategyButton" class="styled-button">Stack and Slide Strategy</button>
-            <div id="strategy" class="strategy-container">
-                <h4>Stack and Slide Strategy</h4>
-                <p>
-                    We stack the tiles in such a way <strong>now</strong>, so that all we have to do 
-                    <strong>later</strong> is shuffle them around.
-                    <br><br>
-                    <strong>For rows:</strong> Place the tile with the higher number in the slot we ultimately want the lower number going. Then, put the lower-numbered tile right below it.
-                    <br><br>
-                    <strong>For columns:</strong> use the same technique, but align them side by side.
-                    <br><br>
-                    Once you've set them up like this, shuffling them into the correct spots becomes super easy—you'll see!
-                    <br><br>
-                </p>
-                    <video width="210" height="200" controls>
-                        <source src="{{ url_for('static', filename='images/s+s_23.mp4') }}" type="video/mp4">
-                    </video>
-                    <video width="210" height="200" controls>
-                        <source src="{{ url_for('static', filename='images/s+s_47.mp4') }}" type="video/mp4">
-                    </video>
-                
-            </div>
-       
-            
-        <br>
-
-        <button id="instructionsButton" class="styled-button">
-            <span>Show me How </span>
-             <span id="bold">&or;</span> </button>
-            <div id="instructions" class="instructions-container">
-                <p> Note:   There are <strong>many</strong> different ways you can move the tiles to achieve your
-                desired result. This video might not be your exact board, but it could inspire movement!</p>
-                
-                <video width="320" height="240" controls>
-                    <source src="{{ url_for('static', filename=video) }}" type="video/mp4">
-                    type="video/mp4">
-                </video> 
             </div>
         </div>
     </div>
-
 </div>
+
+
+
+
 
 
 <script>
