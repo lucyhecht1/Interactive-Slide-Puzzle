@@ -28,7 +28,8 @@ visualDiv.appendChild(buildPuzzList(lay_use));
 
 let sol = '{{ solution | tojson | safe }}';
 let solution = JSON.parse(sol);
-let solve = solveStep(solution);
+var solve = function(){
+    solveStep(solution);}
 window.onload = solve;
 </script>
 

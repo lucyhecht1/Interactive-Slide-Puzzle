@@ -33,7 +33,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="container-fluid check_container">
-                                    {% if quiz_results[0] %}
+                                    {% if quiz_results[0] == [True] %}
                                         <div class="passed-icon"><i class="fa-solid fa-star fa-beat"></i></div>
                                     {% else %}
                                         <div class="failed-icon"><i class="fa-regular fa-star"></i></div>
@@ -58,7 +58,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="container-fluid check_container">
-                                    {% if quiz_results[1] %}
+                                    {% if quiz_results[1] == [True] %}
                                         <div class="passed-icon"><i class="fa-solid fa-star fa-beat"></i></div>
                                     {% else %}
                                         <div class="failed-icon"><i class="fa-regular fa-star"></i></div>
@@ -83,7 +83,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="container-fluid check_container">
-                                        {% if quiz_results[2] %}
+                                        {% if quiz_results[2] == [True] %}
                                             <div class="passed-icon"><i class="fa-solid fa-star fa-beat"></i></div>
                                         {% else %}
                                             <div class="failed-icon"><i class="fa-regular fa-star"></i></div>

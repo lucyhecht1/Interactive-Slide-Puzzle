@@ -25,10 +25,11 @@ why_it_works = ["We are trying to set up our board for long terms success. To co
                 "Our tiles are all setup! All you have to do now is create an empty space so that the 7 can slide down and the 4 can slide over. Then you've completed your left column!",
                 "filler", "filler"]
 
-video= ["images/1.mp4", "images/2.mp4","images/3.mp4","images/4.mp4","images/5.mp4","images/6.mp4","images/7.mp4","images/8.mp4"]
-       
+video = ["images/1.mp4", "images/2.mp4", "images/3.mp4", "images/4.mp4",
+         "images/5.mp4", "images/6.mp4", "images/7.mp4", "images/8.mp4"]
 
-question = ["Solve the top row in 60 seconds", "Solve the left most column",
+
+question = ["Solve the top row in 45 seconds", "Solve the left most column",
             "Solve the remainder of the puzzle"]
 
 step_layout = [[7, 6, 8, 4, 1, 3, 2, 5, 0], [1, 7, 8, 4, 6, 3, 2, 5, 0], [1, 3, 7, 4, 6, 8, 2, 5, 0],
@@ -36,8 +37,7 @@ step_layout = [[7, 6, 8, 4, 1, 3, 2, 5, 0], [1, 7, 8, 4, 6, 3, 2, 5, 0], [1, 3, 
                                              7, 4, 8, 0], [1, 2, 3, 7, 8, 5, 6, 4, 0],
                [1, 2, 3, 7, 4, 8, 6, 5, 0], [1, 2, 3, 4, 0, 8, 7, 6, 5]]
 
-
-
+quest_layout = [[1, 2, 3, 6, 5, 7, 4, 8, 0], [1, 2, 3, 4, 0, 8, 7, 6, 5]]
 
 
 INIT_LAYOUT = [6, 4, 7, 8, 5, 0, 3, 2, 1]
@@ -142,10 +142,10 @@ def quiz(question_num):
 def learn(id):
     global layout
     global solution
-    
+
     layout = list(step_layout[id - 1])
     why_works = why_it_works[id - 2]
-   
+
     return render_template('learn.html', id=id, description=description[id-1], why_it_works=why_works, video=video[id-1], layout=to2D(layout), solution=solution, lay_list=layout)
 
 
@@ -179,19 +179,21 @@ def handle_success_attempt():
 @app.route('/failed-attempt', methods=['POST'])
 def handle_failed_attempt():
     global time_taken
+    global layout
     data_received = request.get_json()
     question = int(data_received.get('question'))
     quiz_results[question-1] = [False]
     time_taken = data_received.get('timeTaken')
     time[question - 1] = time_taken
-    # Process the failed attempt data as needed
-    # print("Failed attempt! Time taken:", time_taken)
+    if question < 3:
+        layout = list(quest_layout[question - 1])
     print(f'Question {question} failed')
     return jsonify({"message": "Failed"})
 
 
 @app.route('/results')
 def quizResults():
+    print(quiz_results)
     return render_template('quizResults.html', time=time, quiz_results=quiz_results)
 
 

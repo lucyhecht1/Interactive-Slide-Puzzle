@@ -558,7 +558,22 @@ font-weight: bold;
 	text-align: center;
 	line-height: 35px;
 	vertical-align: middle;
-	margin-left: 185px;
+	margin-left: 40%;
+	margin-bottom: 5px;
+  }
+  .failed-class {
+	font-weight: bolder;
+	color: #64e0ff;
+	background-color: #2b136f;
+	border-color: #64e0ff;
+	border-width: 3px;
+	width: 100px;
+	height: 35px;
+	border-radius: 4px;
+	text-align: center;
+	line-height: 35px;
+	vertical-align: middle;
+	margin-left: 40%;
 	margin-bottom: 5px;
   }
   

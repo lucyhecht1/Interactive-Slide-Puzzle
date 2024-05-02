@@ -11,6 +11,7 @@ heur = "mis";
 let timerInterval;
 let totalSeconds = 0;
 let puzzleCompleted = false;
+let attemptFailed = false;
 
 var grid = document.getElementById("confetti");
 // document.body.appendChild(grid);
@@ -126,6 +127,9 @@ function moveTile() {
     }
   } else {
     if (checkQuizComplete() == true) {
+      return;
+    }
+    if (attemptFailed) {
       return;
     }
     if (!timerOn) {
@@ -289,7 +293,7 @@ function updateTimer() {
     const formattedTime = `${padZero(minutes)}:${padZero(seconds)}`;
     document.getElementById("timer").textContent = formattedTime;
 
-    if (totalSeconds >= 60) {
+    if (totalSeconds >= 45) {
       stopTimer();
       sendFailedAttempt($("#success").attr("data-step"));
     }
@@ -321,6 +325,8 @@ function sendSuccessAttempt(timeRemaining, question) {
 }
 
 function sendFailedAttempt(question) {
+  attemptFailed = true;
+  $("#success").text("Failed :(").addClass("failed-class");
   $.ajax({
     type: "POST",
     url: "/failed-attempt",
@@ -333,6 +339,7 @@ function sendFailedAttempt(question) {
       console.error("Error sending failed attempt:", err);
     },
   });
+  $("#nextButton").show();
 }
 function sendLayout(layout) {
   // Send the layout data to Flask using AJAX
@@ -358,10 +365,10 @@ function checkStepComplete() {
       if (layout[0][0] == 1) {
         console.log("step 1 complete");
         $("#success").text("Success!");
-        $("#success-card").show()
+        $("#success-card").show();
         // $(".cell:contains('1')").css("background-color", "#64e0ff");
         $("#nextButton").show();
-        
+
         return true;
       } else {
         return false;
@@ -372,7 +379,7 @@ function checkStepComplete() {
         console.log("step 2 complete");
         $("#success").text("Success!");
         $("#nextButton").show();
-        $("#success-card").show()
+        $("#success-card").show();
         return true;
       } else {
         return false;
@@ -383,7 +390,7 @@ function checkStepComplete() {
         console.log("step 3 complete");
         $("#success").text("Success!");
         $("#nextButton").show();
-        $("#success-card").show()
+        $("#success-card").show();
         return true;
       } else {
         return false;
@@ -398,7 +405,7 @@ function checkStepComplete() {
         $(".cell:contains('2')").css("background-color", "#64e0ff");
         $(".cell:contains('3')").css("background-color", "#64e0ff");
         $("#nextButton").show();
-        $("#success-card").show()
+        $("#success-card").show();
         return true;
       } else {
         return false;
@@ -416,7 +423,7 @@ function checkStepComplete() {
         console.log("step 5 complete");
         $("#success").text("Success");
         $("#nextButton").show();
-        $("#success-card").show()
+        $("#success-card").show();
         return true;
       } else {
         return false;
@@ -434,7 +441,7 @@ function checkStepComplete() {
         console.log("step 6 complete");
         $("#success").text("Success");
         $("#nextButton").show();
-        $("#success-card").show()
+        $("#success-card").show();
         return true;
       } else {
         return false;
@@ -454,7 +461,7 @@ function checkStepComplete() {
         $(".cell:contains('4')").css("background-color", "#64e0ff");
         $(".cell:contains('7')").css("background-color", "#64e0ff");
         $("#nextButton").show();
-        $("#success-card").show()
+        $("#success-card").show();
         return true;
       } else {
         return false;
@@ -477,7 +484,7 @@ function checkStepComplete() {
         $("#success").text("Success!");
         $(".cell").css("background-color", "#64e0ff");
         $("#nextButton").show();
-        $("#success-card").show()
+        $("#success-card").show();
         return true;
       } else {
         return false;
