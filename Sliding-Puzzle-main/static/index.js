@@ -1,7 +1,8 @@
 let emptyTileRow = 0;
 let emptyTileCol = 0;
 let timerOn = false;
-var cellDisplacement = "66.5px";
+var cellDisplacement = "85px";
+var cellDisp = "87px";
 var goal_arr = [
   [1, 2, 3],
   [4, 5, 6],
@@ -141,11 +142,11 @@ function moveTile() {
   // Move tile down
   if (posRow + 1 == emptyTileRow && posCol == emptyTileCol) {
     $(this).animate({
-      top: "+=" + cellDisplacement,
+      top: "+=" + cellDisp,
     });
 
     $("#empty").animate({
-      top: "-=" + cellDisplacement,
+      top: "-=" + cellDisp,
     });
 
     emptyTileRow -= 1;
@@ -155,11 +156,11 @@ function moveTile() {
   // Move tile up
   if (posRow - 1 == emptyTileRow && posCol == emptyTileCol) {
     $(this).animate({
-      top: "-=" + cellDisplacement,
+      top: "-=" + cellDisp,
     });
 
     $("#empty").animate({
-      top: "+=" + cellDisplacement,
+      top: "+=" + cellDisp,
     });
 
     emptyTileRow += 1;
@@ -483,7 +484,6 @@ function checkStepComplete() {
         console.log("step 8 complete");
         $("#success").text("Success!");
         $(".cell").css("background-color", "#64e0ff");
-        $("#nextButton").show();
         $("#success-card").show();
         return true;
       } else {
