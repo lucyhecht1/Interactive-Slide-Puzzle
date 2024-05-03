@@ -71,8 +71,6 @@ h1 {
 	margin-left: .1%;
 }
 .cell {
-	/* width: 68px;
-	height: 68px; */
 	width: 31%;
 	height: 93%;
 	float: left;
@@ -153,6 +151,9 @@ h1 {
 #solveButton {
 	background-color: rgb(249, 90, 0);
 	color: azure	;
+}
+.justify{
+	text-align: justify;
 }
 
 #solveButon:hover {

@@ -87,7 +87,6 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', (event) => {
-    // Get the description element
     var descriptionElement = document.getElementById('description');
 
     // Get the text content of the description
@@ -116,17 +115,6 @@ let lay = '{{ layout | tojson | safe }}';
 let grid_use = JSON.parse(lay);
 let sourceDiv = document.getElementById('source');
 sourceDiv.appendChild(buildPuzzle(grid_use));
-//$(".start .cell").click(moveTile('{{id}}'));
-let visualDiv = document.getElementById('visual');
-let lay_list = '{{ lay_list | tojson | safe }}';
-let lay_use = JSON.parse(lay_list);
-visualDiv.appendChild(buildPuzzList(lay_use));
-
-let sol = '{{ solution | tojson | safe }}';
-let solution = JSON.parse(sol);
-$("#showSolution").click(function(){
-    solveStep(solution)
-})
 
 </script>
 

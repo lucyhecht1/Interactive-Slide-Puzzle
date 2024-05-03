@@ -29,8 +29,8 @@ video = ["images/1.mp4", "images/2.mp4", "images/3.mp4", "images/4.mp4",
          "images/5.mp4", "images/6.mp4", "images/7.mp4", "images/8.mp4"]
 
 
-question = ["Solve the top row in 45 seconds", "Solve the left most column",
-            "Solve the remainder of the puzzle"]
+question = ["Solve the top row in 45 seconds", "Solve the left most column in 45 seconds",
+            "Solve the remainder of the puzzle in 45 seconds"]
 
 step_layout = [[7, 6, 8, 4, 1, 3, 2, 5, 0], [1, 7, 8, 4, 6, 3, 2, 5, 0], [1, 3, 7, 4, 6, 8, 2, 5, 0],
                [1, 3, 7, 6, 2, 8, 4, 5, 0], [1, 2, 3, 6, 5,
