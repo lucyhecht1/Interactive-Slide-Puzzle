@@ -10,11 +10,11 @@ app = Flask(__name__)
 
 description = ["Move the 1 to the top left corner",
                "Move the 3 to the top center position",
-               "Place the  2 in the center of the entire board",
-               "Use the Stack and Slide Strategy! shuffle the 2 and 3 around to be in order in the top row",
-               "Use the Stack and Slide Strategy! Start by moving the 7 to the middle of the first column",
-               "Now place the 4 in the center of the entire board without moving the 7",
-               "Now you can move  the 7 and 4 around to be in order in the first column",
+               "Move the 2 to the center of the entire board",
+               "Shuffle the 2 and 3 around to be in order in the top row",
+               "Move the 7 to the middle of the first column",
+               "Move the 4 to the center of the entire board without moving the 7",
+               "Now you can shuffle the 7 and 4 around to be in order in the first column",
                "Shuffle around the last 3 boxes and you are done!"]
 
 why_it_works = ["We are trying to set up our board for long terms success. To complete the top row, we need the 2 and the 3 to be positioned on top of each other so that they eventually can slide into their correct locations. We specifically want the 3 to be on top of the 2 so that we can slide the 3 into the right-most corner, and then the 2 gets pushed up into the middle. Hence, we call this strategy the Stack and Slide Strategy. Can you picture it?",
@@ -29,8 +29,8 @@ video = ["images/1.mp4", "images/2.mp4", "images/3.mp4", "images/4.mp4",
          "images/5.mp4", "images/6.mp4", "images/7.mp4", "images/8.mp4"]
 
 
-question = ["Solve the top row in 45 seconds", "Solve the left most column in 45 seconds",
-            "Solve the remainder of the puzzle in 45 seconds"]
+question = ["Solve the top row in 30 seconds", "Solve the left most column in 30 seconds",
+            "Solve the remainder of the puzzle in 30 seconds"]
 
 step_layout = [[7, 6, 8, 4, 1, 3, 2, 5, 0], [1, 7, 8, 4, 6, 3, 2, 5, 0], [1, 3, 7, 4, 6, 8, 2, 5, 0],
                [1, 3, 7, 6, 2, 8, 4, 5, 0], [1, 2, 3, 6, 5,

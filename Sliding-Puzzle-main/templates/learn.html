@@ -27,7 +27,7 @@
                 `  
                     <button id="whyButton" class="whyButton styled-button mt-3">Why? &or; </button>
                         <div id="whyTho" class="strategy-container">
-                        <p>{{ why_it_works }}</p>
+                        <p><span id="WHY">{{ why_it_works }}</span></p>
                         </div>
                     
                 </div>
@@ -65,7 +65,7 @@
                     <span>Show me How </span>
                     <span id="bold">&or;</span> </button>
                     <div id="instructions" class="instructions-container">
-                        <p> Note:   There are <strong>many</strong> different ways you can move the tiles to achieve your
+                        <p> There are <strong>many</strong> different ways you can move the tiles to achieve your
                         desired result. This video might not be your exact board, but it could inspire movement!</p>
                         
                         <video width="320" height="240" controls>
@@ -109,6 +109,31 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     // Set the innerHTML of the description element to the styled description
     descriptionElement.innerHTML = styledDescription;
+});
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    var descriptionElements = document.getElementById('WHY');
+
+    // Get the text content of the description
+    var descriptionTexts = descriptionElements.textContent;
+
+    // Split the description text into an array of characters
+    var characterss = descriptionTexts.split('');
+
+    // Create a new HTML string with each number wrapped in a span element with a class
+    var styledDescriptions = '';
+    characterss.forEach(function(char) {
+        if (!isNaN(char)) { // Check if the character is a number
+            // If it's a number, wrap it in a span element with a class for styling
+            styledDescriptions += '<span class="number">' + char + '</span>';
+        } else {
+            // If it's not a number, just add it to the string as is
+            styledDescriptions += char;
+        }
+    });
+
+    // Set the innerHTML of the description element to the styled description
+    descriptionElements.innerHTML = styledDescriptions;
 });
 
 let lay = '{{ layout | tojson | safe }}';

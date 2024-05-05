@@ -487,7 +487,7 @@ function updateTimer() {
     const formattedTime = `${padZero(minutes)}:${padZero(seconds)}`;
     document.getElementById("timer").textContent = formattedTime;
 
-    if (totalSeconds >= 45) {
+    if (totalSeconds >= 30) {
       stopTimer();
       sendFailedAttempt($("#success").attr("data-step"));
     }
