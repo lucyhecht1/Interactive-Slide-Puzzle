@@ -27,8 +27,8 @@ $(document).ready(function () {
 
   function showResultsButton() {
     let currentId = window.location.pathname.split("/").pop();
-    if (currentId == 3) {
+    /*if (currentId == 3) {
       $("#resultsButton").show();
-    }
+    }*/
   }
 });

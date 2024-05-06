@@ -108,6 +108,7 @@
 <div class="row">
     <div class="col-md-12 text-center">
         <button id="retakeQuiz" class="styled-button">Retake quiz</button>
+        <button id="learnAgain" class="styled-button">Repeat Learn</button>
         <button id="solvePuzzle" class="styled-button">Practice Puzzles</button>
     </div>
 </div>
@@ -125,8 +126,15 @@
         window.location.href = "/practice";
         });
     }
+    function relearn() {
+        // Click event handler for the retake quiz button
+        $("#learnAgain").click(function () {
+        window.location.href = "/row";
+        });
+    }
     retakeQuizBut();
     solvePuzzleBut();
+    relearn();
 </script>
 
 {% endblock %}

@@ -212,6 +212,7 @@ function checkQuizComplete() {
         sendSuccessAttempt(timeRemaining, 3);
         $("#success").text("Success!").addClass("success-class");
         $(".cell").css("background-color", "#64e0ff");
+        $("#resultsButton").show();
         return true;
       } else {
         return false;
