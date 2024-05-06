@@ -13,7 +13,6 @@
 	color: #333333;
 }
 
-
 h1 {
 	font-weight: bold;
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, serif;
@@ -505,7 +504,6 @@ font-weight: bold;
 	color: #2b136f;
 }
 
-
 .color{
 	background-color: #2b136f;
 }
@@ -530,11 +528,9 @@ font-weight: bold;
 
 }
 
-
 #success-card{
 	display: none;
 }
-
 
 .click-card2 {
     
