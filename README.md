@@ -48,3 +48,17 @@ python server.py
 http://127.0.0.1:5000
 ```
 
+## Usage
+1. Launch the application in your browser.
+2. Select "Learn the Basics" to begin the guided tutorial.
+3. Follow the step-by-step instructions and solve the slide puzzle interactively.
+4. Use hints when needed and pay attention to the feedback on your moves.
+5. Test your skills with quizzes in “Quiz Yourself” or practice more puzzles in “Practice Puzzles”
+6. Track your progress and improve over time!
+
+## Demo of all features:
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/vNMWQUcbNss/0.jpg)](https://www.youtube.com/watch?v=vNMWQUcbNss)
+
+
+
+
