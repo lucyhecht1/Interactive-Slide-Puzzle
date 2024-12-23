@@ -25,4 +25,26 @@ The goal of this project is to:
 * Deployment: Flask server for backend integration
 
 # Getting Started
-##
+Clone this repository:
+```
+git clone https://github.com/your-username/Interactive-Slide-Puzzle.git
+```
+Navigate to the project directory:
+```
+cd Interactive-Slide-Puzzle
+```
+Install dependencies:
+```
+npm install
+pip install flask
+```
+**Run the server locally:**
+```
+cd Sliding-Puzzle-main
+python server.py
+```
+**Open the application in your browser:** 
+```
+http://127.0.0.1:5000
+```
+
