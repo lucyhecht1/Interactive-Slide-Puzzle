@@ -59,6 +59,12 @@ http://127.0.0.1:5000
 ## Demo of all features:
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/vNMWQUcbNss/0.jpg)](https://www.youtube.com/watch?v=vNMWQUcbNss)
 
+## Group Collaborators
+I researched, iterated on, and built this project together with:
+- [Adira Sklar](https://github.com/AdiraSklar)  
+- [Judah Wahba](https://github.com/Wahba-J)  
+- [Jonno Rosen](https://github.com/JonathanRosen5)  
+
 
 
 
