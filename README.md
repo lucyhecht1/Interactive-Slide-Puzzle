@@ -22,7 +22,6 @@ The goal of this project is to:
 * Frontend: HTML, CSS, jQuery, Bootstrap, JavaScript
 * Backend: Python (Flask)
 * UI Interaction: jQuery for DOM manipulation and AJAX calls
-* Deployment: Flask server for backend integration
 
 # Getting Started
 Clone this repository:
